@@ -1,0 +1,252 @@
+<html>  
+   
+    <body>  
+        <div class="bg-white" id="lwhole">
+            <h4 class="text-center " id="head">Open A Savings Account</h4><br>
+           <h4><pre class="container text-left pb-sm-2 m-sm"><b>Personal Details </b>  </pre></h4><br>
+           
+           
+            
+                <div class="container pb-sm-3 m-sm">
+                    <form [formGroup]="ContactForm" (ngSubmit)="SubmitInfo()">
+                        <div class="form-group mb-2">
+                            <label for="title"><b>Title</b></label><br>
+                            <select>  
+                                <option value="title">Title</option>  
+                                <option value="BCA">Mr.</option>  
+                                <option value="BBA">Mrs.</option>  
+                                <option value="B.Tech">Ms.</option>  
+                            </select>  
+                            <br>  
+            
+                            <label for="FirstName"><b>FirstName</b></label>
+                            <input type="text" placeholder="Enter First Name" required class="form-control" name="FirstName" formControlName="firstname"/>
+                            <br>  
+                        </div>
+            
+                        <div *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)" class="error text-danger" role="alert">
+                            <div *ngIf="firstname?.errors?.required">
+                              First Name is required
+                            </div>
+                            <div *ngIf="firstname?.errors?.minlength">
+                                First Name length should be 3
+                              </div>
+                              <div *ngIf="firstname?.errors?.pattern">
+                                Enter valid First Name
+                              </div>
+                        </div>
+
+                        <div class="form-group mb-2">
+            
+                            <label for="Middlename"><b>Middlename</b></label>
+                            <input type="text" placeholder="Enter Middle Name" class="form-control" name="Middlename" formControlName="middlename"/>
+                            <br>  
+                        </div>
+            
+
+                        <div class="form-group mb-2">
+            
+                            <label for="LastName"><b>LastName</b></label>
+                            <input type="text" placeholder="Enter Last Name" required class="form-control" name="LastName" formControlName="lastname"/>
+                            <br>  
+                        </div>
+            
+                        <div *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)" class="error text-danger" role="alert">
+                            <div *ngIf="lastname?.errors?.required">
+                              Last Name is required
+                            </div>
+                            <div *ngIf="lastname?.errors?.minlength">
+                                Last Name length should be 3
+                              </div>
+                              <div *ngIf="lastname?.errors?.pattern">
+                                Enter a Valid Last Name
+                              </div>
+                        </div>
+
+                        <div class="form-group mb-2">
+            
+                            <label for="FatherName"><b>FatherName</b></label>
+                            <input type="text" placeholder="Enter Father Name" required class="form-control" name="FatherName" formControlName="fathername"/>
+                            <br>  
+                        </div>
+            
+                        <div *ngIf="!fathername?.valid && (fathername?.dirty || fathername?.touched)" class="error text-danger" role="alert">
+                            <div *ngIf="fathername?.errors?.required">
+                              Father's Name is required
+                            </div>
+                            <div *ngIf="fathername?.errors?.minlength">
+                                Father's Name length should be 3
+                              </div>
+                              <div *ngIf="fathername?.errors?.pattern">
+                                Enter a Valid Father's Name
+                              </div>
+                        </div>
+
+                        <div class="form-group mb-2">
+            
+                            <label for="Mobile"><b>Mobile Number</b></label>
+                            <input type="text" placeholder="Enter Mobile number" required class="form-control" name="Mobile" formControlName="mobile"/>
+                            <br>  
+                        </div>
+            
+                        <div *ngIf="!mobile?.valid && (mobile?.dirty || mobile?.touched)" class="error text-danger" role="alert">
+                            <div *ngIf="mobile?.errors?.required">
+                              Mobile number is required
+                            </div>
+                              <div *ngIf="mobile?.errors?.pattern">
+                                Enter a Valid Mobile number
+                              </div>
+                        </div>
+
+                        <div class="form-group mb-2">
+            
+                            <label for="Email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" class="form-control required" name="Email" formControlName="email"/>
+                            <br>  
+                        </div>
+            
+                        <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error text-danger" role="alert">
+                            <div *ngIf="email?.errors?.required">
+                              Email is required
+                            </div>
+                              <div *ngIf="email?.errors?.pattern">
+                                Enter a Valid Email
+                              </div>
+                        </div>
+
+                        <div class="form-group mb-2">
+            
+                            <label for="Aadhar"><b>Aadhar Card Number</b></label>
+                            <input type="text" placeholder="Enter Aadhar number" required class="form-control" name="Aadhar" formControlName="aadhar"/>
+                            <br>  
+                        </div>
+            
+                        <div *ngIf="!aadhar?.valid && (aadhar?.dirty || aadhar?.touched)" class="error text-danger" role="alert">
+                            <div *ngIf="aadhar?.errors?.required">
+                              Aadhar number is required
+                            </div>
+                              <div *ngIf="aadhar?.errors?.pattern">
+                                Enter a Valid Aadhar number
+                              </div>
+                        </div>
+
+                        <div class="form-group mb-2">
+            
+                            <label for="Dob"><b>Date of Birth</b></label>
+                            <input type="date"  required class="form-control" name="Dob"/>
+                            <br>  
+                        </div><br>
+                    
+
+            <h4><pre class="text-left pb-sm-2 m-sm"><b>Permanent Address </b>  </pre></h4>
+          
+             <div class="form-group mb-2">
+                <label for="Dob"><b>Address</b></label>  
+            <br>  
+            <textarea cols="60" rows="4" value="address">  
+            </textarea> 
+            </div>
+
+            <div class="form-group mb-2">
+            
+                <label for="land"><b>Landmark</b></label>
+                <input type="text" placeholder="Enter Landmark" class="form-control required" name="land" formControlName="landmark"/>
+                <br>  
+            </div>
+
+            <div class="form-group mb-2">
+            
+                <label for="State"><b>State</b></label>
+                <input type="text" placeholder="Enter state" class="form-control required" name="state" formControlName="state"/>
+                <br>  
+            </div>
+
+            <div class="form-group mb-2">
+            
+                <label for="city"><b>City</b></label>
+                <input type="text" placeholder="Enter City" class="form-control required" name="city" formControlName="city"/>
+                <br>  
+            </div>
+            <div class="form-group mb-2">
+            
+                <label for="pincode"><b>Pincode</b></label>
+                <input type="text" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
+                <br>  
+            </div><br>
+
+
+            <h4><pre class="text-left pb-sm-2 m-sm"><b>Residential Address </b>  </pre></h4><br>
+            <div class="form-group mb-2">
+            <input type="checkbox"/><b>Permanent Address same as Mailing Address</b>
+            </div>
+            <div class="form-group mb-2">
+               <label for="Dob"><b>Address</b></label>  
+           <br>  
+           <textarea cols="60" rows="4" value="address">  
+           </textarea> 
+           </div>
+
+           <div class="form-group mb-2">
+           
+               <label for="land"><b>Landmark</b></label>
+               <input type="text" placeholder="Enter Landmark" class="form-control required" name="land" formControlName="landmark"/>
+               <br>  
+           </div>
+
+           <div class="form-group mb-2">
+           
+               <label for="State"><b>State</b></label>
+               <input type="text" placeholder="Enter state" class="form-control required" name="state" formControlName="state"/>
+               <br>  
+           </div>
+
+           <div class="form-group mb-2">
+           
+               <label for="city"><b>City</b></label>
+               <input type="text" placeholder="Enter City" class="form-control required" name="city" formControlName="city"/>
+               <br>  
+           </div>
+           <div class="form-group mb-2">
+           
+               <label for="pincode"><b>Pincode</b></label>
+               <input type="text" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
+               <br>  
+           </div><br>
+
+           <h4><pre class="text-left pb-sm-2 m-sm"><b>Occupation Details</b>  </pre></h4><br>
+           <div class="form-group mb-2">
+           
+            <label for="occtype"><b>Occupation Type</b></label>
+            <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/>
+            <br>  
+        </div>
+
+        <div class="form-group mb-2">
+        
+            <label for="city"><b>Source of Income</b></label>
+            <input type="text" placeholder="Enter source of income" class="form-control required" name="city" formControlName="city"/>
+            <br>  
+        </div>
+        <div class="form-group mb-2">
+        
+            <label for="pincode"><b>Gross Salary Income</b></label>
+            <input type="text" placeholder="Enter salary income" class="form-control required" name="pincode" formControlName="pincode"/>
+            <br>  
+        </div>
+        <h4><pre class="text-left pb-sm-2 m-sm"><b>Debit/ATM Card </b>  </pre></h4>
+        <div class="form-group mb-2">
+            <b>Do you want Debit card?*</b>
+            </div><br>
+        <div class="form-group mb-2">
+            <input type="checkbox"/><b>Opt for Net Banking</b>
+            </div>
+            <div class="form-group mb-2">
+                <input type="checkbox"/><b>I agree...</b>
+                </div><br><br>
+                <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()">Submit</button>
+		 </form>
+                </div>
+        </div>
+    </body>
+</html>
+

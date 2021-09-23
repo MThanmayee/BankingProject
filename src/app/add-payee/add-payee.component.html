@@ -1,0 +1,36 @@
+<div class="bg-white" id="lwhole">
+    <h4 class="text-center" id="head">Add new Benificiary</h4>
+    <div class="container pb-sm-3 m-sm">
+
+<form [formGroup]="AddPayeeForm" >
+    <table>
+        <tr>
+            <td><label for="bname" class="form-label">Benificiary Name</label></td>
+            <td><input type="text" id="bname" name="BenificiaryName" class="form-control"   formControlName="BenificiaryName"/></td>
+        </tr>
+        <tr>
+            <td><label for="acntno" class="form-label">Account Number</label></td>
+            <td><input type="text" id="acntno" name="AccountNumber" class="form-control"   formControlName="AccountNumber"/></td>
+        </tr>
+        <tr>
+            <td><label for="racntno" class="form-label">Re-enter Account Number</label></td>
+            <td><input type="number" id="racntno" name="RAccountNumber" class="form-control"   formControlName="RAccountNumber"/></td>
+        </tr>
+        <tr>
+            <td>
+                <input type = "checkbox" id="saveb" name="saveb" formControlName="SaveBenificiary"/>
+                <label for="saveb">Save Benificiary</label>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="bname" class="form-label">Nick Name</label></td>
+            <td><input type="text" id="nname" name="NickName" class="form-control"  aria-describedby="inputFieldHelp" formControlName="NickName"/></td>
+        </tr>
+        <br>
+        <tr><td colspan="2"  style="text-align:center;"><input type="submit" value="Save as Benificiary" [disabled]="!AddPayeeForm.valid"/></td></tr>
+    </table>
+</form>
+</div>
+</div>
+
+

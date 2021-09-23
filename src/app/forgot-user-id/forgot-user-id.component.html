@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-8 offset-sm-2">
+    <h2>Forgot User ID</h2>
+    <h3>Enter Details</h3>
+<form [formGroup]="ForgotUserIdForm" (ngSubmit)="sumbitInfo()" class="formgroup">
+    <div>  
+        <label for="accountNo">Enter Account Number</label>
+        <input type="text" id="accountNo" name="accountNo" class="form-control" formControlName="accountNo"/>
+   </div>
+   <div *ngIf="!accountNo ?.valid && (accountNo ?.dirty || accountNo ?.touched)" class="error">
+    <div *ngIf="accountNo!.errors!.required">
+      Account Number is required
+    </div>
+    
+</div>
+<div>
+    <div>  
+        <label for="OTP">Enter OTP</label>
+        <input type="text" id="OTP" name="OTP" class="form-control" formControlName="OTP"/>
+   </div>
+   <div *ngIf="!OTP ?.valid && (OTP ?.dirty || OTP?.touched)" class="error">
+    <div *ngIf="OTP!.errors!.required">
+      OTP is required
+    </div>
+    <div *ngIf="OTP!.errors!.minlength">
+        OTP should have atleast 6 characters
+      </div>
+</div>
+</div>
+<div>
+  <button (click)="Redirect()">
+    <input type="submit" value="Proceed" class="btn btn-primary" [disabled]="!ForgotUserIdForm.valid"/> </button>
+    <input type="submit" value="back" class="btn btn-danger" />
+</div>
+
+</form>
+    </div>
+  </div>
+</div>

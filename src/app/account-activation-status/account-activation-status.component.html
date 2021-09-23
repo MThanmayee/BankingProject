@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-8 offset-sm-2">
+            <h2>Account Activation Status</h2>
+    <form [formGroup]="StatusForm" class="form-group" (ngSubmit)="submitInfo()">
+        <div>  
+            <label for="accountNo">Enter Account Number</label>
+            <input type="text" id="referenceNumber" name="referenceNumber" class="form-control" formControlName="referenceNumber"/>
+       </div>
+       <div *ngIf="!referenceNumber ?.valid && (referenceNumber ?.dirty || referenceNumber ?.touched)" class="error">
+        <div *ngIf="referenceNumber!.errors!.required">
+          Account Number is required
+        </div>
+       </div>
+       <div>
+           <button (click)="Redirect()">
+        <input type="submit" value="Submit" class="btn btn-primary" [disabled]="!StatusForm.valid"/></button>
+
+       </div>
+    </form>
+        </div>
+    </div>
+</div>

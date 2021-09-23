@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-8 offset-sm-2">
+    <h2>Register For Internet Banking</h2>
+    <form [formGroup]="RegisterForm" class="form-group" (ngSubmit)="submitInfo()">
+        <div>
+            <label for="accountNo">Account Number</label>
+            <input type="text" name="accountNo" id="accountNo" class="form-control" formControlName="accountNo">
+        </div>
+        <div *ngIf="RegisterForm.controls['accountNo'].invalid && (RegisterForm.controls['accountNo'].dirty || RegisterForm.controls['accountNo'].touched)" class="alert">
+            <div *ngIf="RegisterForm.controls['accountNo'].errors!.required">
+            Please enter Account Number
+          </div>
+          </div>
+        <div>
+            <label for="loginPassword">Set Login Password</label>
+            <input type="text" name="loginPassword" id="loginPassword" class="form-control" formControlName="loginPassword">
+        </div>
+        <div *ngIf="RegisterForm.controls['loginPassword'].invalid && (RegisterForm.controls['loginPassword'].dirty || RegisterForm.controls['loginPassword'].touched)" class="alert">
+            <div *ngIf="RegisterForm.controls['loginPassword'].errors!.required">
+            Please enter Login Password
+          </div>
+          <div *ngIf="RegisterForm.controls['loginPassword'].errors!.pattern">
+            <ul>
+              <li> must be eight characters or longer </li>
+              <li> must contain at least 1 lowercase</li>
+              <li> must contain at least 1 uppercase</li>
+               <li> contain at least 1 special character</li>
+           </ul>
+          </div>
+        </div>
+        <div>
+            <label for="confirmLoginPassword">Confirm Login Password</label>
+            <input type="text" name="confirmLoginPassword" id="confirmLoginPassword" class="form-control" formControlName="confirmLoginPassword">
+        </div>
+        <div *ngIf="RegisterForm.controls['confirmLoginPassword'].invalid && (RegisterForm.controls['confirmLoginPassword'].dirty || RegisterForm.controls['confirmLoginPassword'].touched)" class="alert">
+            <div *ngIf="RegisterForm.controls['confirmLoginPassword'].errors">
+            Please confirm Login Password
+          </div>
+        </div>
+       
+        <div>
+          <button (click)="Redirect()">
+          <input type="submit" value="Next" class="btn btn-primary" [disabled]="!RegisterForm.valid"/></button>
+      </div>
+
+    </form>
+    </div>
+  </div>
+</div>
