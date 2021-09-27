@@ -18,6 +18,9 @@ import { LoginComponent } from './login/login.component';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { HomeComponent } from './home/home.component';
 import { ResetEmailComponent } from './reset-email/reset-email.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { SessionExpiredComponent } from './session-expired/session-expired.component';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { ResetEmailComponent } from './reset-email/reset-email.component';
     LoginComponent,
     OpenAccountComponent,
     HomeComponent,
-    ResetEmailComponent
+    ResetEmailComponent,
+    AccountDetailsComponent,
+    AccountSummaryComponent,
+    SessionExpiredComponent
   ],
   imports: [
     BrowserModule,

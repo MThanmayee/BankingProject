@@ -17,6 +17,9 @@ import { SetNewPasswordComponent } from './set-new-password/set-new-password.com
 import { TransactionPasswordComponent } from './transaction-password/transaction-password.component';
 import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
 import { ResetEmailComponent } from './reset-email/reset-email.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { SessionExpiredComponent } from './session-expired/session-expired.component';
 
 const routes: Routes = [
   {path:"IMPS",component:IMPSTransferComponent},
@@ -35,7 +38,10 @@ const routes: Routes = [
   {path:"ForgotPassword",component:ForgotPasswordFormComponent},
   {path:"SetNewPassword",component:SetNewPasswordComponent},
   {path:"TransactionPassword",component:TransactionPasswordComponent},
-  {path:"ResetEmail",component:ResetEmailComponent}
+  {path:"ResetEmail",component:ResetEmailComponent},
+  {path:"AccountDetails",component:AccountDetailsComponent},
+  {path:"AccountSummary",component:AccountSummaryComponent},
+  {path:"SessionExpired",component:SessionExpiredComponent}
 ];
 
 @NgModule({

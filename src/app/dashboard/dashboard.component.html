@@ -1,35 +1,39 @@
 
+
 <div class="navHead">
-    <div class="msg">
+    <div class="logo" style="text-align: center;">
         <h2>Dashboard</h2>
     </div>
 
 <div class="container">
     <nav class="navbar navbar-expand-md navbar-light">
         <!-- <span class="navbar-brand">Dashboard</span> -->
-        <div>
-            <ul class="navbar-nav">
-                <li> <a routerLink="/AccountStatement"  class="navbar-brand">Account Statement</a></li>
-                <li> <a routerLink="/FundsTransfer" class="navbar-brand">Funds Transfer</a></li>
-                <li> <a routerLink="" class="navbar-brand">User Profile</a></li>
-                <li> <a routerLink="/SetNewPassword"  class="navbar-brand">Change User's Password</a></li>
-            </ul>
+        <div class="pull-right">
+           <div class="btn-group">
+            <button class="btn btn-success">LogOut</button>
+            </div>
         </div>
     </nav>
 </div>
 
 <div>
-    <nav >
+    <nav>
         <ul class="navbar-nav" >
-          <a routerLink="" class="navbar-brand">Account Details</a>
-          <a routerLink="/AccountSummary" class="navbar-brand">Account Summary</a>
-           <a routerLink="/FundsTransfer" class="navbar-brand" >Funds Transfer</a>
-           <a routerLink="/AccountStatement" class="navbar-brand">Account Statement</a>
+          <a href="AccountDetails" class="navbar-brand">Account Details</a>
+          <a href="AccountSummary" class="navbar-brand">Account Summary</a>
+           <a href="FundsTransfer" class="navbar-brand" >Funds Transfer</a>
+           <a href="AccountStatement" class="navbar-brand">Account Statement</a>
+           <!-- <a routerLink="" class="navbar-brand">User Profile</a> -->
+            <a href="SetNewPassword" class="navbar-brand">Change User's Password</a>
+            <a href="SessionExpired" class ="navbar-brand">Session Expired</a>
         </ul>	
   </nav>
 </div>
 
-<div class="navFoot" >
+<!-- <div class="navFoot" >
     <p>© 2020 Larsen & Toubro Infotech Limited</p>
+</div -->
+
 </div>
+
     
