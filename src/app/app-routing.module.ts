@@ -16,6 +16,7 @@ import { ForgotPasswordFormComponent } from './forgot-password-form/forgot-passw
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
 import { TransactionPasswordComponent } from './transaction-password/transaction-password.component';
 import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
+import { ResetEmailComponent } from './reset-email/reset-email.component';
 
 const routes: Routes = [
   {path:"IMPS",component:IMPSTransferComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path:"ForgotUserID",component:ForgotUserIdComponent},
   {path:"ForgotPassword",component:ForgotPasswordFormComponent},
   {path:"SetNewPassword",component:SetNewPasswordComponent},
-  {path:"TransactionPassword",component:TransactionPasswordComponent}
+  {path:"TransactionPassword",component:TransactionPasswordComponent},
+  {path:"ResetEmail",component:ResetEmailComponent}
 ];
 
 @NgModule({

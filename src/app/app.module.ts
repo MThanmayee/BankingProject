@@ -17,6 +17,7 @@ import { AccountActivationStatusComponent } from './account-activation-status/ac
 import { LoginComponent } from './login/login.component';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { HomeComponent } from './home/home.component';
+import { ResetEmailComponent } from './reset-email/reset-email.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { HomeComponent } from './home/home.component';
     AccountActivationStatusComponent,
     LoginComponent,
     OpenAccountComponent,
-    HomeComponent
+    HomeComponent,
+    ResetEmailComponent
   ],
   imports: [
     BrowserModule,
