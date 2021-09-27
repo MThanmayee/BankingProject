@@ -1,17 +1,18 @@
+<p>Transaction Details</p>
 
 <h2 style="text-align:center;">IMPS Transfer</h2>
 <br>
 <div class="d-flex justify-content-center">
-<form [formGroup]="IMPSForm" >
+<form [formGroup]="TransactionForm" >
     <table>
         <tr>
             <td><label for="fAcnt">From Account</label></td>
-            <td><input type="number" id="fAcnt" name="FromAccount" formControlName="FromAccount"/></td>
+            <td><input type="number" id="fAcnt" name="FromAccount" formControlName="FromAccount" /></td>
         </tr>
         <tr>
             <td><label for="tAcnt">To Account</label></td>
-            <td><input type="number" id="tAcnt" name="ToAccount" formControlName="ToAccount"/></td>
-            <td><button (click)="AddPayee()">Add New<small>+</small></button></td>
+            <td><input type="number" id="tAcnt" name="ToAccount"  formControlName="ToAccount" /></td>
+            
         </tr>
         <tr>
             <td><label for="amt">Amount</label></td>
@@ -33,12 +34,12 @@
         <tr>
             <td colspan="2"  style="text-align:center;">
                 <button (click)="Redirect()">
-                <input type="submit" value="Save " [disabled]="!IMPSForm.valid"/></button>
-                <input type="reset" value="Reset"/>
-                <input type="submit" value="Save as template"/>
-                <input type="submit" value="Continue"/>
+                <input type="submit" value="Confirm "/></button>
+                
            </td>
         </tr>
     </table>
 </form>
 </div>
+
+

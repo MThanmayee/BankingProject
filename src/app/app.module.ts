@@ -17,6 +17,14 @@ import { AccountActivationStatusComponent } from './account-activation-status/ac
 import { LoginComponent } from './login/login.component';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { HomeComponent } from './home/home.component';
+import { TransactionConfirmComponent } from './transaction-confirm/transaction-confirm.component';
+import { TransactionSuccessfulComponent } from './transaction-successful/transaction-successful.component';
+import { AdminComponent } from './admin/admin.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ViewBenificiariesComponent } from './view-benificiaries/view-benificiaries.component';
+import { EmailSentComponent } from './email-sent/email-sent.component';
+import { ReferenceNumberComponent } from './reference-number/reference-number.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 @NgModule({
@@ -35,7 +43,15 @@ import { HomeComponent } from './home/home.component';
     AccountActivationStatusComponent,
     LoginComponent,
     OpenAccountComponent,
-    HomeComponent
+    HomeComponent,
+    TransactionConfirmComponent,
+    TransactionSuccessfulComponent,
+    AdminComponent,
+    UserProfileComponent,
+    ViewBenificiariesComponent,
+    EmailSentComponent,
+    ReferenceNumberComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,

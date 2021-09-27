@@ -19,5 +19,8 @@ export class AddPayeeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  Redirect()
+  {
+    
+  }
 }

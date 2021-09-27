@@ -16,6 +16,14 @@ import { ForgotPasswordFormComponent } from './forgot-password-form/forgot-passw
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
 import { TransactionPasswordComponent } from './transaction-password/transaction-password.component';
 import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
+import { ViewBenificiariesComponent } from './view-benificiaries/view-benificiaries.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminComponent } from './admin/admin.component';
+import { EmailSentComponent } from './email-sent/email-sent.component';
+import { ReferenceNumberComponent } from './reference-number/reference-number.component';
+import { TransactionConfirmComponent } from './transaction-confirm/transaction-confirm.component';
+import {TransactionSuccessfulComponent} from './transaction-successful/transaction-successful.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:"IMPS",component:IMPSTransferComponent},
@@ -33,7 +41,15 @@ const routes: Routes = [
   {path:"ForgotUserID",component:ForgotUserIdComponent},
   {path:"ForgotPassword",component:ForgotPasswordFormComponent},
   {path:"SetNewPassword",component:SetNewPasswordComponent},
-  {path:"TransactionPassword",component:TransactionPasswordComponent}
+  {path:"TransactionPassword",component:TransactionPasswordComponent},
+  {path:"ViewBenificiaries",component:ViewBenificiariesComponent},
+  {path:"Admin",component:AdminComponent},
+  {path:"EmailSent",component:EmailSentComponent},
+  {path:"AdminHome",component:AdminHomeComponent},
+  {path:"ReferenceNumber",component:ReferenceNumberComponent},
+  {path:"TransactionConfirm",component:TransactionConfirmComponent},
+  {path:"TransactionSuccess",component:TransactionSuccessfulComponent},
+  {path:"UpdateUser",component:UserProfileComponent},
 ];
 
 @NgModule({

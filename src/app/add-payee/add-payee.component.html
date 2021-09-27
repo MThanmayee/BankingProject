@@ -27,7 +27,7 @@
             <td><input type="text" id="nname" name="NickName" class="form-control"  aria-describedby="inputFieldHelp" formControlName="NickName"/></td>
         </tr>
         <br>
-        <tr><td colspan="2"  style="text-align:center;"><input type="submit" value="Save as Benificiary" [disabled]="!AddPayeeForm.valid"/></td></tr>
+        <tr><td colspan="2"  style="text-align:center;"><button (click)="Redirect()"><input type="submit" value="Save as Benificiary" [disabled]="!AddPayeeForm.valid"/></button></td></tr>
     </table>
 </form>
 </div>
