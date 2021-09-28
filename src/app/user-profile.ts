@@ -1,0 +1,30 @@
+export class UserProfile {
+    Title!:string
+    FirstName!:string
+    MiddleName!:string
+    LastName!:string
+    FatherName!:string
+    MobileNumber!:bigint
+    EmailId!:string
+    Aadhar!:string
+    DateOfBirth!:Date
+    BranchIfsc!:string
+    AccountStatus!:string
+    ReferenceNumber!:number
+    ResAddressLine1!:string
+    ResAddressLine2!:string
+    ResLandmark!:string
+    ResState!:string
+    ResCity!:string
+    ResPincode!:number
+    PerAddressLine1!:string
+    PerAddressLine2!:string
+    PerLandmark!:string
+    PerState!:string
+    PerCity!:string
+    PerPincode!:number
+    OccupationType!:string
+    SourceOfIncome!:string
+    GrossAnnualIncome!:string
+    
+}

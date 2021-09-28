@@ -11,11 +11,11 @@
                     <form [formGroup]="ContactForm" (ngSubmit)="SubmitInfo()">
                         <div class="form-group mb-2">
                             <label for="title"><b>Title</b></label><br>
-                            <select>  
+                            <select formControlName="title">  
                                 <option value="title">Title</option>  
-                                <option value="BCA">Mr.</option>  
-                                <option value="BBA">Mrs.</option>  
-                                <option value="B.Tech">Ms.</option>  
+                                <option value="Mr">Mr.</option>  
+                                <option value="Mrs">Mrs.</option>  
+                                <option value="Ms">Ms.</option>  
                             </select>  
                             <br>  
             
@@ -84,8 +84,8 @@
 
                         <div class="form-group mb-2">
             
-                            <label for="Mobile"><b>Mobile Number</b></label>
-                            <input type="text" placeholder="Enter Mobile number" required class="form-control" name="Mobile" formControlName="mobile"/>
+                            <label for="Mobilenumber"><b>Mobile Number</b></label>
+                            <input type="number" placeholder="Enter Mobile number" required class="form-control" name="Mobilenumber" formControlName="mobilenumber"/>
                             <br>  
                         </div>
             
@@ -100,8 +100,8 @@
 
                         <div class="form-group mb-2">
             
-                            <label for="Email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" class="form-control required" name="Email" formControlName="email"/>
+                            <label for="EmailId"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" class="form-control required" name="EmailId" formControlName="emailId"/>
                             <br>  
                         </div>
             
@@ -132,8 +132,8 @@
 
                         <div class="form-group mb-2">
             
-                            <label for="Dob"><b>Date of Birth</b></label>
-                            <input type="date"  required class="form-control" name="Dob"/>
+                            <label for="DateOfBirth"><b>Date of Birth</b></label>
+                            <input type="date"  required class="form-control" name="DateOfBirth" formControlName="DateOfBirth"/>
                             <br>  
                         </div><br>
                     
@@ -141,36 +141,36 @@
             <h4><pre class="text-left pb-sm-2 m-sm"><b>Permanent Address </b>  </pre></h4>
           
              <div class="form-group mb-2">
-                <label for="Dob"><b>Address</b></label>  
+                <label for="ResAddressLine1"><b>Address</b></label>  
             <br>  
-            <textarea cols="60" rows="4" value="address">  
+            <textarea cols="60" rows="4" name="RAddress" value="ResAddressLine1" formControlName="resaddressline1">  
             </textarea> 
             </div>
 
             <div class="form-group mb-2">
             
-                <label for="land"><b>Landmark</b></label>
-                <input type="text" placeholder="Enter Landmark" class="form-control required" name="land" formControlName="landmark"/>
+                <label for="ResLandmark"><b>Landmark</b></label>
+                <input type="text" placeholder="Enter Landmark" class="form-control required" name="ResLandmark" formControlName="reslandmark"/>
                 <br>  
             </div>
 
             <div class="form-group mb-2">
             
-                <label for="State"><b>State</b></label>
-                <input type="text" placeholder="Enter state" class="form-control required" name="state" formControlName="state"/>
+                <label for="ResState"><b>State</b></label>
+                <input type="text" placeholder="Enter state" class="form-control required" name="ResState" formControlName="resstate"/>
                 <br>  
             </div>
 
             <div class="form-group mb-2">
             
-                <label for="city"><b>City</b></label>
-                <input type="text" placeholder="Enter City" class="form-control required" name="city" formControlName="city"/>
+                <label for="ResCity"><b>City</b></label>
+                <input type="text" placeholder="Enter City" class="form-control required" name="rescity" formControlName="rescity"/>
                 <br>  
             </div>
             <div class="form-group mb-2">
             
-                <label for="pincode"><b>Pincode</b></label>
-                <input type="text" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
+                <label for="ResPincode"><b>Pincode</b></label>
+                <input type="number" placeholder="Enter pincode" class="form-control required" name="respincode" formControlName="respincode"/>
                 <br>  
             </div><br>
 
@@ -180,70 +180,85 @@
             <input type="checkbox"/><b>Permanent Address same as Mailing Address</b>
             </div>
             <div class="form-group mb-2">
-               <label for="Dob"><b>Address</b></label>  
+               <label for="PerAddressLine1"><b>Address</b></label>  
            <br>  
-           <textarea cols="60" rows="4" value="address">  
+           <textarea cols="60" rows="4" name="PerAddressLine1" value="address" formControlName="peraddressline1">  
            </textarea> 
            </div>
 
            <div class="form-group mb-2">
            
-               <label for="land"><b>Landmark</b></label>
-               <input type="text" placeholder="Enter Landmark" class="form-control required" name="land" formControlName="landmark"/>
+               <label for="PerLandmark"><b>Landmark</b></label>
+               <input type="text" placeholder="Enter Landmark" class="form-control" required name="PerLandmark" formControlName="perlandmark"/>
                <br>  
            </div>
 
            <div class="form-group mb-2">
            
-               <label for="State"><b>State</b></label>
-               <input type="text" placeholder="Enter state" class="form-control required" name="state" formControlName="state"/>
+               <label for="PerState"><b>State</b></label>
+               <input type="text" placeholder="Enter state" class="form-control required" name="PerState" formControlName="perstate"/>
                <br>  
            </div>
 
            <div class="form-group mb-2">
            
-               <label for="city"><b>City</b></label>
-               <input type="text" placeholder="Enter City" class="form-control required" name="city" formControlName="city"/>
+               <label for="PerCity"><b>City</b></label>
+               <input type="text" placeholder="Enter City" class="form-control required" name="PerCity" formControlName="percity"/>
                <br>  
            </div>
            <div class="form-group mb-2">
            
-               <label for="pincode"><b>Pincode</b></label>
-               <input type="text" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
+               <label for="PerPincode"><b>Pincode</b></label>
+               <input type="number" placeholder="Enter pincode" class="form-control" required name="PerPincode" formControlName="perpincode"/>
                <br>  
            </div><br>
 
            <h4><pre class="text-left pb-sm-2 m-sm"><b>Occupation Details</b>  </pre></h4><br>
            <div class="form-group mb-2">
-           
-            <label for="occtype"><b>Occupation Type</b></label>
+            <label for="Occupationtype"><b>Occupation Type</b></label>
+            <select id="occtype" name="Occupationtype" class="form-control" formControlName="OccupationType" required>
+                <option value="Service">Service</option>
+                <option value="Government">Government Employee</option>
+                <option value="Business">Business</option>
+            </select>
+            <!-- <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/> -->
+            <br> 
+           <!-- <label for="occtype"><b>Occupation Type</b></label>
             <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/>
-            <br>  
+            <br> --> 
         </div>
 
         <div class="form-group mb-2">
         
-            <label for="city"><b>Source of Income</b></label>
-            <input type="text" placeholder="Enter source of income" class="form-control required" name="city" formControlName="city"/>
+            <label for="SourceOfIncome"><b>Source of Income</b></label>
+            <input type="text" placeholder="Enter source of income" class="form-control" required name="SourceOfIncome" formControlName="SourceOfIncome"/>
             <br>  
         </div>
         <div class="form-group mb-2">
         
-            <label for="pincode"><b>Gross Salary Income</b></label>
-            <input type="text" placeholder="Enter salary income" class="form-control required" name="pincode" formControlName="pincode"/>
+            <label for="GrossAnnualIncome"><b>Gross Salary Income</b></label>
+            <input type="number" placeholder="Enter salary income" class="form-control" required name="GrossAnnualIncome" formControlName="GrossAnnualIncome"/>
+            <br>  
+        </div>
+        <div class="form-group mb-2">
+            <label for="BranchIfsc"><b>IFSC Code</b></label>
+            <select id="BranchIfsc" name="BranchIfsc" class="form-control" name="ifsc" formControlName="BranchIfsc" required>
+                <option value="Bank of Baroda">BARB0SHIPOO</option>
+                <option value="UNIB0799893">UBIN0799893</option>
+                <option value="IDBI Bank">IDBI0015536</option>
+            </select>
+            <!-- <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/> -->
             <br>  
         </div>
         <h4><pre class="text-left pb-sm-2 m-sm"><b>Debit/ATM Card </b>  </pre></h4>
         <div class="form-group mb-2">
             <b>Do you want Debit card?*</b>
             </div><br>
-        <div class="form-group mb-2">
-            <input type="checkbox"/><b>Opt for Net Banking</b>
-            </div>
+        
             <div class="form-group mb-2">
                 <input type="checkbox"/><b>I agree...</b>
                 </div><br><br>
-                <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()">Submit</button>
+                <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" >Submit</button>
 		 </form>
                 </div>
         </div>

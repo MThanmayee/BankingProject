@@ -1,27 +1,25 @@
 <div class="bg-white" id="lwhole">
     <h4 class="text-center" id="head">Login to your Account</h4>
     <div class="container pb-sm-3 m-sm">
-        <form [formGroup]="ContactForm" (ngSubmit)="SubmitInfo()">
+        <form [formGroup]="ContactForm" (ngSubmit)="SubmitRedirect()">
             <div class="form-group mb-2">
 
-                <label for="uname"><b>User ID</b></label>
-                <input type="text" placeholder="Enter User ID" class="form-control" name="uname" formControlName="username"/>
+                <label for="customerid"><b>User ID</b></label>
+                <input type="number" placeholder="Enter User ID" class="form-control" name="customerid" formControlName="customerid"/>
                 <br>  
             </div>
 
-            <div *ngIf="!username?.valid && (username?.dirty || username?.touched)" class="error text-danger" role="alert">
-                <div *ngIf="username?.errors?.required">
+            <div *ngIf="!customerid?.valid && (customerid ?.dirty || customerid ?.touched)" class="error text-danger" role="alert">
+                <div *ngIf="customerid ?.errors?.required">
                   User Name is required
                 </div>
-                <div *ngIf="username?.errors?.minlength">
-                    User Name length should be 6
-                  </div>
+                
             </div>
 
 
             <div class="form-group mb-2">
                 <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" class="form-control" name="psw" formControlName="password"  />
+    <input type="text" placeholder="Enter Password" class="form-control" name="psw" formControlName="password"  />
     <br>
             </div>
 
