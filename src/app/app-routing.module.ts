@@ -16,6 +16,7 @@ import { ForgotPasswordFormComponent } from './forgot-password-form/forgot-passw
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
 import { TransactionPasswordComponent } from './transaction-password/transaction-password.component';
 import { FundTransferComponent } from './fund-transfer/fund-transfer.component';
+<<<<<<< HEAD
 import { ViewBenificiariesComponent } from './view-benificiaries/view-benificiaries.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminComponent } from './admin/admin.component';
@@ -24,6 +25,12 @@ import { ReferenceNumberComponent } from './reference-number/reference-number.co
 import { TransactionConfirmComponent } from './transaction-confirm/transaction-confirm.component';
 import {TransactionSuccessfulComponent} from './transaction-successful/transaction-successful.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+=======
+import { ResetEmailComponent } from './reset-email/reset-email.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { SessionExpiredComponent } from './session-expired/session-expired.component';
+>>>>>>> 05f53bc3b9d6127d94b5c5a9b20ab60da96b4b3d
 
 const routes: Routes = [
   {path:"IMPS",component:IMPSTransferComponent},
@@ -42,6 +49,7 @@ const routes: Routes = [
   {path:"ForgotPassword",component:ForgotPasswordFormComponent},
   {path:"SetNewPassword",component:SetNewPasswordComponent},
   {path:"TransactionPassword",component:TransactionPasswordComponent},
+<<<<<<< HEAD
   {path:"ViewBenificiaries",component:ViewBenificiariesComponent},
   {path:"Admin",component:AdminComponent},
   {path:"EmailSent",component:EmailSentComponent},
@@ -50,6 +58,12 @@ const routes: Routes = [
   {path:"TransactionConfirm",component:TransactionConfirmComponent},
   {path:"TransactionSuccess",component:TransactionSuccessfulComponent},
   {path:"UpdateUser",component:UserProfileComponent},
+=======
+  {path:"ResetEmail",component:ResetEmailComponent},
+  {path:"AccountDetails",component:AccountDetailsComponent},
+  {path:"AccountSummary",component:AccountSummaryComponent},
+  {path:"SessionExpired",component:SessionExpiredComponent}
+>>>>>>> 05f53bc3b9d6127d94b5c5a9b20ab60da96b4b3d
 ];
 
 @NgModule({

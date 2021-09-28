@@ -27,7 +27,7 @@ export class SetNewPasswordComponent implements OnInit {
   }
   Redirect()
   {
-    this.router.navigateByUrl("/Login");
+    this.router.navigateByUrl("/ResetEmail");
   }
 
 }

@@ -17,6 +17,7 @@ import { AccountActivationStatusComponent } from './account-activation-status/ac
 import { LoginComponent } from './login/login.component';
 import { OpenAccountComponent } from './open-account/open-account.component';
 import { HomeComponent } from './home/home.component';
+<<<<<<< HEAD
 import { TransactionConfirmComponent } from './transaction-confirm/transaction-confirm.component';
 import { TransactionSuccessfulComponent } from './transaction-successful/transaction-successful.component';
 import { AdminComponent } from './admin/admin.component';
@@ -25,6 +26,12 @@ import { ViewBenificiariesComponent } from './view-benificiaries/view-benificiar
 import { EmailSentComponent } from './email-sent/email-sent.component';
 import { ReferenceNumberComponent } from './reference-number/reference-number.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+=======
+import { ResetEmailComponent } from './reset-email/reset-email.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { SessionExpiredComponent } from './session-expired/session-expired.component';
+>>>>>>> 05f53bc3b9d6127d94b5c5a9b20ab60da96b4b3d
 
 
 @NgModule({
@@ -44,6 +51,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     LoginComponent,
     OpenAccountComponent,
     HomeComponent,
+<<<<<<< HEAD
     TransactionConfirmComponent,
     TransactionSuccessfulComponent,
     AdminComponent,
@@ -52,6 +60,12 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     EmailSentComponent,
     ReferenceNumberComponent,
     AdminHomeComponent
+=======
+    ResetEmailComponent,
+    AccountDetailsComponent,
+    AccountSummaryComponent,
+    SessionExpiredComponent
+>>>>>>> 05f53bc3b9d6127d94b5c5a9b20ab60da96b4b3d
   ],
   imports: [
     BrowserModule,

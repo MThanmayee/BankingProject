@@ -1,0 +1,27 @@
+<div class="col-md-6 offset-md-3">
+    <div class="card-header">
+        <h3 class="mb-0" style="text-align: center;">Password Reset</h3>
+    </div>
+    <div class="card-body">
+        <form class="form" role="form" autocomplete="off"  [formGroup]="passresertform" (ngSubmit)="submitinfo()">
+            <div class="form-group">
+                <label for="inputResetPasswordEmail">Email</label>
+                <input type="email" class="form-control" id="inputResetPasswordEmail" formControlName="email" >
+                <span id="helpResetPasswordEmail" class="form-text small text-muted">
+                        Password reset instructions will be sent to this email address.
+                    </span>
+
+                    <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+                        <div *ngIf="email!.errors!.required">
+                            Email is required
+                          </div>
+                          <div *ngIf=" email!.errors!.pattern">Incorrect format of email</div> 
+                    </div>
+                        
+            </div>
+            <div class="form-group">
+                <button type="submit" (click)="Redirect()" class="btn btn-success btn-lg float-right">Back</button>
+            </div>
+        </form>
+    </div>
+</div>
