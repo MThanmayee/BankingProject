@@ -18,7 +18,7 @@
 <div>
     <div>  
         <label for="OTP">Enter OTP</label>
-        <input type="text" id="OTP" name="OTP" class="form-control" formControlName="OTP"/>
+        <input type="text" id="OTP" name="OTP" class="form-control" formControlName="OTP"/><br>
    </div>
    <div *ngIf="!OTP ?.valid && (OTP ?.dirty || OTP?.touched)" class="error">
     <div *ngIf="OTP!.errors!.required">
@@ -30,8 +30,8 @@
 </div>
 </div>
 <div>
-  <button (click)="Redirect()">
-    <input type="submit" value="Proceed" class="btn btn-primary" [disabled]="!ForgotUserIdForm.valid"/> </button>
+  <button (click)="Redirect()" class="btn btn-primary" [disabled]="!ForgotUserIdForm.valid">Proceed</button>
+    <!-- <input type="submit" value="Proceed" class="btn btn-primary" [disabled]="!ForgotUserIdForm.valid"/>  -->
     <input type="submit" value="back" class="btn btn-danger" />
 </div>
 

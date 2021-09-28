@@ -85,7 +85,7 @@
                         <div class="form-group mb-2">
             
                             <label for="Mobile"><b>Mobile Number</b></label>
-                            <input type="text" placeholder="Enter Mobile number" required class="form-control" name="Mobile" formControlName="mobile"/>
+                            <input type="number" placeholder="Enter Mobile number" required class="form-control" name="Mobile" formControlName="mobile"/>
                             <br>  
                         </div>
             
@@ -101,7 +101,7 @@
                         <div class="form-group mb-2">
             
                             <label for="Email"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" class="form-control required" name="Email" formControlName="email"/>
+                            <input type="email" placeholder="Enter Email" class="form-control required" name="Email" formControlName="email"/>
                             <br>  
                         </div>
             
@@ -170,7 +170,7 @@
             <div class="form-group mb-2">
             
                 <label for="pincode"><b>Pincode</b></label>
-                <input type="text" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
+                <input type="number" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
                 <br>  
             </div><br>
 
@@ -209,18 +209,24 @@
            <div class="form-group mb-2">
            
                <label for="pincode"><b>Pincode</b></label>
-               <input type="text" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
+               <input type="number" placeholder="Enter pincode" class="form-control required" name="pincode" formControlName="pincode"/>
                <br>  
            </div><br>
 
            <h4><pre class="text-left pb-sm-2 m-sm"><b>Occupation Details</b>  </pre></h4><br>
-           <div class="form-group mb-2">
+        <div class="form-group mb-2">
            
             <label for="occtype"><b>Occupation Type</b></label>
-            <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/>
+            <select id="occtype" name="Occupationtype" class="form-control required">
+                <option value="Service">Service</option>
+                <option value="Government">Government Employee</option>
+                <option value="Business">Business</option>
+            </select>
+            <!-- <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/> -->
             <br>  
         </div>
 
+       
         <div class="form-group mb-2">
         
             <label for="city"><b>Source of Income</b></label>
@@ -230,9 +236,23 @@
         <div class="form-group mb-2">
         
             <label for="pincode"><b>Gross Salary Income</b></label>
-            <input type="text" placeholder="Enter salary income" class="form-control required" name="pincode" formControlName="pincode"/>
+            <input type="number" placeholder="Enter salary income" class="form-control required" name="pincode" formControlName="pincode"/>
             <br>  
         </div>
+
+    
+        <div class="form-group mb-2">
+            <label for="ifsc"><b>IFSC Code</b></label>
+            <select id="ifsc" name="ifsc" class="form-control required">
+                <option value="Bank of Baroda">BARB0SHIPOO</option>
+                <option value="HDFC bank">HDFC0001791</option>
+                <option value="IDBI Bank">IDBI0015536</option>
+            </select>
+            <!-- <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/> -->
+            <br>  
+        </div>
+
+
         <h4><pre class="text-left pb-sm-2 m-sm"><b>Debit/ATM Card </b>  </pre></h4>
         <div class="form-group mb-2">
             <b>Do you want Debit card?*</b>
