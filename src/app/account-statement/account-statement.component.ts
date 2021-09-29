@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
 import { Account } from '../account';
+import { Transactions } from '../transactions';
 
 @Component({
   selector: 'app-account-statement',
@@ -9,16 +10,18 @@ import { Account } from '../account';
   styleUrls: ['./account-statement.component.css']
 })
 export class AccountStatementComponent implements OnInit {
-  AccountDetails1!:Account[];
+  transactions!:any;
+  accountno!: any;
   constructor(private service:RegisterService,private router:Router) { }
 
   ngOnInit(): void 
   {
-    this.service.getall().subscribe(data => 
+    this.accountno=sessionStorage.getItem('accountnumber')
+    this.service.getTransactions(this.accountno).subscribe(data => 
       {
-        this.AccountDetails1 = data;
+        this.transactions = data;
 
-        console.log(this.AccountDetails1)
+        console.log(this.transactions)
       })
   }
 

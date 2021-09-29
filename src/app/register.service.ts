@@ -3,11 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserProfile } from './user-profile';
 import { Account } from './account';
+import { Transactions } from './transactions';
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  private url = "https://localhost:5001/api/account";
+  private url = "https://localhost:44378/api/account";
   httpOptions = {
     headers : new HttpHeaders(
       {
@@ -39,6 +40,11 @@ export class RegisterService {
   GetAccountById(id:number)
   {
     return this.client.get<Account>(this.url+'/summary?accountnumber='+id);
+  }
+
+  getTransactions(accountnumber:number)
+  {
+    return this.client.get<Transactions[]>(this.url+'/transactions?AccountNumber='+accountnumber)
   }
   getall():Observable<Account[]>
   {

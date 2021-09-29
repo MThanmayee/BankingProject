@@ -7,20 +7,29 @@
         <thead>
             <tr>
               <th>Select</th>
-              <th>Account Number</th>
-              <th>Name</th>
-              <th>Account Type</th>
-              <th>Balance</th>
+              <th>Transactiond ID</th>
+              <th>From Account</th>
+              <th>To Account</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Transaction Type</th>
+              <th>Maturity Instructions</th>
+              <th>Remarks</th>
+
             </tr>
           </thead>
           <tbody>
               
-              <tr *ngFor = "let i of AccountDetails1">
+              <tr *ngFor = "let i of transactions">
                 <td><input type="radio" /></td> 
-                <td>{{i.AccountNumber}}</td>
-                <td>{{i.UserName}}</td>
-                <td>{{i.AccountType}}</td>
-                <td>{{i.Balance}}</td>
+                <td>{{i. transactionId}}</td>
+                <td>{{i.fromAccount}}</td>
+                <td>{{i.toAccount}}</td>
+                <td>{{i.amount}}</td>
+                <td>{{i.date | date}}</td>
+                <td>{{i.transactionType}}</td>
+                <td>{{i.maturityInstructions}}</td>
+                <td>{{i.remarks}}</td>
                 
                 
             </tr>
