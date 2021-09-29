@@ -28,4 +28,12 @@ export class RegisterService {
   {
     return this.client.put(this.url+"/register",JSON.stringify(user),this.httpOptions)
   }
+  GetAccountById(id:number)
+  {
+    return this.client.get<Account>(this.url+'/summary?accountnumber='+id);
+  }
+  getall():Observable<Account[]>
+  {
+    return this.client.get<Account[]>(this.url+'/Account');
+  }
 }

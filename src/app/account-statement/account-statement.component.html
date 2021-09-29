@@ -3,7 +3,7 @@
 
 <div class="container d-flex justify-content-center">
   
-    <table class="table">
+    <table class="table" >
         <thead>
             <tr>
               <th>Select</th>
@@ -14,13 +14,16 @@
             </tr>
           </thead>
           <tbody>
-              <tr>
-                 <tH><input type="radio" /></tH> 
-                  <th><input></th>
-                 <th><input></th> 
-                 <th><input></th> 
-                 <th><input></th> 
-              </tr>
+              
+              <tr *ngFor = "let i of AccountDetails1">
+                <td><input type="radio" /></td> 
+                <td>{{i.AccountNumber}}</td>
+                <td>{{i.UserName}}</td>
+                <td>{{i.AccountType}}</td>
+                <td>{{i.Balance}}</td>
+                
+                
+            </tr>
           </tbody>
     
     </table>
