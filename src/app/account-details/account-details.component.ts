@@ -10,18 +10,35 @@ import { RegisterService } from '../register.service';
 })
 export class AccountDetailsComponent implements OnInit {
 
-  userprofile !: UserProfile;
-
+  userprofile !: any;
+  acnt!: any
 
   constructor(private service:RegisterService) { }
 
   ngOnInit(): void {
-
-    this.service.GetDetails('vishnu@gmail.com').subscribe((data)=>
+    this.acnt=sessionStorage.getItem('email')
+    console.log(this.acnt)
+    this.service.GetDetails(this.acnt).subscribe((data)=>
     this.userprofile=data
    
     );
+
+   /*  getdetails(){
+  
+      this.service.GetNumber(this.customerid).subscribe(
+        data=> {
+          // this.accountnumber=data["AccountNumber"]
+          this.account=data;
+          sessionStorage.setItem('account',this.account)
+          
+          console.log(this.account)
+        }
+      )
+    } */
+
     console.log(this.userprofile)
   }
+
+  
 
 }

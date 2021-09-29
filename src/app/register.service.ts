@@ -16,9 +16,13 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
+  GetNumber(customerid:number)
+  {
+    return this.client.get(this.url+'/getnumber?customerid='+customerid)
+  }
   GetDetails(email:string):Observable<UserProfile>
   {
-     return this.client.get<UserProfile>(this.url+'/display')
+     return this.client.get<UserProfile>(this.url+'/display?EmailId='+email)
   }
   OpenNewAccount(newUser:UserProfile) 
   {
