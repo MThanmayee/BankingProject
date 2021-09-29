@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-forgot-password-form',
@@ -9,29 +10,27 @@ import { Router } from '@angular/router';
 })
 export class ForgotPasswordFormComponent implements OnInit {
   ForgotPasswordForm=new FormGroup({
-    userId:new FormControl("",Validators.required,),
-    OTP:new FormControl("",[Validators.required,Validators.minLength(6)])
+    CustomerId:new FormControl("",Validators.required,)
   })
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private service:RegisterService ) { }
 
   ngOnInit(): void {
   }
-  get userId()
+  get  CustomerId()
   {
-    return this.ForgotPasswordForm.get("userId")
+    return this.ForgotPasswordForm.get(" CustomerId")
   }
-  get OTP()
-  {
-    return this.ForgotPasswordForm.get("OTP")
-  }
+  
   sumbitInfo()
   {
-    
+    this.service.forgotpwd(this.ForgotPasswordForm.value).subscribe(res => {
+      this.router.navigateByUrl("/SetNewPassword");
+   });
   }
   Redirect()
   {
-    this.router.navigateByUrl("/SetNewPassword");
+   
   }
 
 }

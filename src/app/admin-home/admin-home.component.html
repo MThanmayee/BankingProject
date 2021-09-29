@@ -1,1 +1,53 @@
-<p>admin-home works!</p>
+
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item">
+           
+            
+          </li>
+          <li class="nav-item">
+            <a routerLink="#link" class="btn btn-default navbar-text"  role="button">Logout</a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<h1 class="center">HELLO ADMIN!!</h1><br>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                NAME
+            </th>
+            <th>
+                EMAIL
+            </th>
+            <th>
+                PHONE NUMBER
+            </th>
+           
+            <th>
+                ACCOUNT TYPE
+            </th>
+            <th>
+                REFERENCE NUMBER
+            </th>
+            <th>
+                Approval Status
+            </th>
+        </tr>
+    </thead>
+    
+</table>
+
+<a [routerLink]="['/approval']">Approve status</a>

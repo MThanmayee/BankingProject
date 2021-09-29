@@ -54,6 +54,25 @@ export class RegisterService {
   {
     return this.client.put(this.url+"/confirmotp",JSON.stringify(user),this.httpOptions)
   }
+
+  forgotuid(user:Account):Observable<Account>
+  {
+    return this.client.put(this.url+"/forgotuid",JSON.stringify(user),this.httpOptions)
+  }
+ 
+  confirmotp1(user:Account):Observable<Account>
+  {
+    return this.client.put(this.url+"/confirmotp1",JSON.stringify(user),this.httpOptions)
+  }
+  forgotpwd(user:Account):Observable<Account>
+  {
+    return this.client.put(this.url+"/forgotpwd",JSON.stringify(user),this.httpOptions)
+  }
+ 
+  confirmotp2(user:Account):Observable<Account>
+  {
+    return this.client.put(this.url+"/confirmotp2",JSON.stringify(user),this.httpOptions)
+  }
 }
 
 

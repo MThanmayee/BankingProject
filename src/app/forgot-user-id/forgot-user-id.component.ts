@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-forgot-user-id',
@@ -10,28 +11,27 @@ import { Router } from '@angular/router';
 export class ForgotUserIdComponent implements OnInit {
 
   ForgotUserIdForm=new FormGroup({
-    accountNo:new FormControl("",Validators.required,),
-    OTP:new FormControl("",[Validators.required,Validators.minLength(6)])
+    AccountNumber:new FormControl("",Validators.required,)
+   
   })
-  constructor(private router:Router) { }
+  constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
   }
-  get accountNo()
+  get AccountNumber()
   {
-    return this.ForgotUserIdForm.get("accountNo")
+    return this.ForgotUserIdForm.get("AccountNumber")
   }
-  get OTP()
-  {
-    return this.ForgotUserIdForm.get("OTP")
-  }
+
   sumbitInfo()
   {
-    
+    this.service.forgotuid(this.ForgotUserIdForm.value).subscribe(res => {
+      this.router.navigateByUrl("/OTP1");
+   });
   }
   Redirect()
   {
-    this.router.navigateByUrl("/EmailSent");
+    
   }
 
 }

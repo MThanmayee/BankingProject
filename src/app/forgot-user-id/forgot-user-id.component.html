@@ -5,30 +5,17 @@
     <h2>Forgot User ID</h2>
     <h3>Enter Details</h3>
 <form [formGroup]="ForgotUserIdForm" (ngSubmit)="sumbitInfo()" class="formgroup">
-    <div>  
-        <label for="accountNo">Enter Account Number</label>
-        <input type="text" id="accountNo" name="accountNo" class="form-control" formControlName="accountNo"/>
-   </div>
-   <div *ngIf="!accountNo ?.valid && (accountNo ?.dirty || accountNo ?.touched)" class="error">
-    <div *ngIf="accountNo!.errors!.required">
-      Account Number is required
-    </div>
-    
+  <div>  
+    <label for="AccountNumber">Enter Account Number</label>
+    <input type="number" id="AccountNumber" name="AccountNumber" class="form-control" formControlName="AccountNumber"/>
 </div>
-<div>
-    <div>  
-        <label for="OTP">Enter OTP</label>
-        <input type="text" id="OTP" name="OTP" class="form-control" formControlName="OTP"/><br>
-   </div>
-   <div *ngIf="!OTP ?.valid && (OTP ?.dirty || OTP?.touched)" class="error">
-    <div *ngIf="OTP!.errors!.required">
-      OTP is required
-    </div>
-    <div *ngIf="OTP!.errors!.minlength">
-        OTP should have atleast 6 characters
-      </div>
+<div *ngIf="!AccountNumber ?.valid && (AccountNumber ?.dirty || AccountNumber ?.touched)" class="error">
+<div *ngIf="AccountNumber!.errors!.required">
+  Account Number is required
 </div>
 </div>
+
+
 <div>
   <button (click)="Redirect()" class="btn btn-primary" [disabled]="!ForgotUserIdForm.valid">Proceed</button>
     <!-- <input type="submit" value="Proceed" class="btn btn-primary" [disabled]="!ForgotUserIdForm.valid"/>  -->

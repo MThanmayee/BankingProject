@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   SubmitRedirect()
   {
       this.service.Login(this.ContactForm.value).subscribe(res => {
-        sessionStorage.setItem('customerid',this.ContactForm.value.customerid)
+        
          this.route.navigateByUrl("/Dashboard");
       });   
   }
