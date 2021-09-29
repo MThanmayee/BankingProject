@@ -16,7 +16,15 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
-  OpenNewAccount(newUser: UserProfile) 
+  GetNumber(customerid:number)
+  {
+    return this.client.get(this.url+'/getnumber?customerid='+customerid)
+  }
+  GetDetails(email:string):Observable<UserProfile>
+  {
+     return this.client.get<UserProfile>(this.url+'/display?EmailId='+email)
+  }
+  OpenNewAccount(newUser:UserProfile) 
   {
     return this.client.post(this.url+'/OpenNewAccount', JSON.stringify(newUser), this.httpOptions);
   }
@@ -24,7 +32,7 @@ export class RegisterService {
   {
     return this.client.post(this.url+"/login",JSON.stringify(user),this.httpOptions)
   }
-  Register(user:Account)
+  Register(user:Account):Observable<Account>
   {
     return this.client.put(this.url+"/register",JSON.stringify(user),this.httpOptions)
   }
@@ -36,4 +44,10 @@ export class RegisterService {
   {
     return this.client.get<Account[]>(this.url+'/Account');
   }
+  confirmotp(user:Account):Observable<Account>
+  {
+    return this.client.put(this.url+"/confirmotp",JSON.stringify(user),this.httpOptions)
+  }
 }
+
+

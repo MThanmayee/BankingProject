@@ -11,21 +11,15 @@ import { Account } from '../account';
 export class AccountSummaryComponent implements OnInit 
 {
   AccountDetails:any;
+  acntnumber!:any;
   constructor(private service:RegisterService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.service.GetAccountById(12345678).subscribe(data => 
+    this.acntnumber = sessionStorage.getItem('accountnumber')
+    this.service.GetAccountById(this.acntnumber).subscribe(data => 
       {
-        /*this.AccountDetails.AccountNumber = data["AccountNumber"]
-        this.AccountDetails.AccountType = data["AccountType"]
-        this.AccountDetails.Balance = data["Balance"]
-        this.AccountDetails.CustomerId = data["CustomerId"]
-        this.AccountDetails.UserName = data["UserName"]
-        this.AccountDetails.Email = data["Email"]
-        this.AccountDetails.Password = data["Password"]
-        this.AccountDetails.TransactionPassword = data["TransactionPassword"]*/
         this.AccountDetails = data;
-        
+        console.log(this.AccountDetails)
       })
     
   }
