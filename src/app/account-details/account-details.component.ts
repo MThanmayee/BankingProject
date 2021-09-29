@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserProfile } from '../user-profile';
+import { RegisterService } from '../register.service';
+
 
 @Component({
   selector: 'app-account-details',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountDetailsComponent implements OnInit {
 
-  constructor() { }
+  userprofile !: UserProfile;
+
+
+  constructor(private service:RegisterService) { }
 
   ngOnInit(): void {
+
+    this.service.GetDetails('vishnu@gmail.com').subscribe((data)=>
+    this.userprofile=data
+   
+    );
+    console.log(this.userprofile)
   }
 
 }
