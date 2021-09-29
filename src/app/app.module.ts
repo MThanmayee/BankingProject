@@ -27,10 +27,10 @@ import { ReferenceNumberComponent } from './reference-number/reference-number.co
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ResetEmailComponent } from './reset-email/reset-email.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
+import { AccountStatementComponent } from './account-statement/account-statement.component';
 import { AccountSummaryComponent } from './account-summary/account-summary.component';
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import { Otp1Component } from './otp1/otp1.component';
 
 
@@ -63,7 +63,8 @@ import { Otp1Component } from './otp1/otp1.component';
     AccountDetailsComponent,
     AccountSummaryComponent,
     SessionExpiredComponent,
-    Otp1Component
+    Otp1Component,
+    AccountStatementComponent
   ],
   imports: [
     BrowserModule,

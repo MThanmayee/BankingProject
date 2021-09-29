@@ -10,19 +10,20 @@
       
         
         <div class="card-body">
+           
             <form class="form" role="form" autocomplete="off">
-
+                
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Account Number</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value="510000152244">
+                        <input class="form-control" type="text" value="{{AccountDetails.accountNumber}}" formcontrolname="accountnumber"/>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Balance</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value="50000">
+                        <input class="form-control" type="text" value="{{AccountDetails.balance}}" formcontrolname="balance"/>
                     </div>
                 </div>
                 
