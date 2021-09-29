@@ -7,10 +7,11 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-md navbar-light">
+        Welcome {{customerid}}
         <!-- <span class="navbar-brand">Dashboard</span> -->
         <div class="pull-right">
            <div class="btn-group">
-            <button class="btn btn-success">LogOut</button>
+            <a href="Login" (click)='logout()'>LogOut</a>
             </div>
         </div>
     </nav>
