@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatchPasswordService } from '../match-password.service';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-register',
@@ -11,17 +12,17 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   constructor(private fb:FormBuilder,
-    public customValidator:MatchPasswordService,private router:Router ) { }
+    public customValidator:MatchPasswordService,private router:Router,private service:RegisterService ) { }
       RegisterForm=this.fb.group({
 
-      accountNo:['',Validators.required],
+      AccountNumber:['',Validators.required],
 
-      loginPassword:['',Validators.compose([ Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])],
+      Password:['',Validators.compose([ Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])],
       
       confirmLoginPassword:['',Validators.required],
       
      
-    },{ validator: this.customValidator.passwordMatchValidator("loginPassword","confirmLoginPassword")}
+    },{ validator: this.customValidator.passwordMatchValidator("Password","confirmLoginPassword")}
     
     )
     
@@ -30,10 +31,11 @@ export class RegisterComponent implements OnInit {
     
   }
   submitInfo(){
+    
+    this.service.Register(this.RegisterForm.value).subscribe(res => {
+      this.router.navigateByUrl("/TransactionPassword");
+   });
 
   }
-  Redirect()
-  {
-    this.router.navigateByUrl("/TransactionPassword");
-  }
+ 
 }

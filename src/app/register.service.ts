@@ -28,8 +28,15 @@ export class RegisterService {
   {
     return this.client.post(this.url+"/login",JSON.stringify(user),this.httpOptions)
   }
-  Register(user:Account)
+  Register(user:Account):Observable<Account>
   {
     return this.client.put(this.url+"/register",JSON.stringify(user),this.httpOptions)
   }
+
+  confirmotp(user:Account):Observable<Account>
+  {
+    return this.client.put(this.url+"/confirmotp",JSON.stringify(user),this.httpOptions)
+  }
 }
+
+
