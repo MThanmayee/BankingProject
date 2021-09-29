@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+  
+      <div class="col-sm-8 offset-sm-2">
+<form [formGroup]="OtpForm1" class="form-group" (ngSubmit)=" sumbitInfo()">
+    <div>  
+        <label for="AccountNumber">Enter Account Number</label>
+        <input type="number" id="AccountNumber" name="AccountNumber" class="form-control" formControlName="AccountNumber"/>
+    </div>
+    <div *ngIf="!AccountNumber ?.valid && (AccountNumber ?.dirty || AccountNumber ?.touched)" class="error">
+    <div *ngIf="AccountNumber!.errors!.required">
+      Account Number is required
+    </div>
+    </div>
+<div>
+    <div>  
+        <label for="OTP">Enter OTP</label>
+        <input type="text" id="OTP" name="OTP" class="form-control" formControlName="OTP"/><br>
+   </div>
+   <div *ngIf="!OTP ?.valid && (OTP ?.dirty || OTP?.touched)" class="error">
+    <div *ngIf="OTP!.errors!.required">
+      OTP is required
+    </div>
+    <div *ngIf="OTP!.errors!.minlength">
+        OTP should have atleast 6 characters
+      </div>
+</div>
+</div>
+<div>
+  <button (click) ="Redirect()" class="btn btn-primary" value="Proceed" [disabled]="!OtpForm1.valid">Proceed</button>
+    <!-- <input type="submit" class="btn btn-primary" value="Proceed" [disabled]="!ForgotPasswordForm.valid"/> -->
+    <input type="submit" class="btn btn-danger" value="back" />
+</div>
+
+</form>
+    </div>
+  </div>
+</div>

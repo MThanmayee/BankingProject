@@ -5,7 +5,7 @@
             <h2>Account Activation Status</h2>
     <form [formGroup]="StatusForm" class="form-group" (ngSubmit)="submitInfo()">
         <div>  
-            <label for="accountNo">Enter Account Number</label>
+            <label for="referenceNumber">Enter Reference Number</label>
             <input type="text" id="referenceNumber" name="referenceNumber" class="form-control" formControlName="referenceNumber"/><br>
        </div>
        <div *ngIf="!referenceNumber ?.valid && (referenceNumber ?.dirty || referenceNumber ?.touched)" class="error">

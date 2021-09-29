@@ -9,6 +9,7 @@ export class Account {
     Email?:string;
     Password?:string;
     TransactionPassword?:string;
+    OTP?:string;
 
 
 

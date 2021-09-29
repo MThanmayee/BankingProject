@@ -31,6 +31,8 @@ import { AccountSummaryComponent } from './account-summary/account-summary.compo
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { Otp1Component } from './otp1/otp1.component';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { HttpClientModule } from '@angular/common/http';
     ResetEmailComponent,
     AccountDetailsComponent,
     AccountSummaryComponent,
-    SessionExpiredComponent
+    SessionExpiredComponent,
+    Otp1Component
   ],
   imports: [
     BrowserModule,
