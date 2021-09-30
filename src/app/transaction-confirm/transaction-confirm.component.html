@@ -6,47 +6,56 @@
     
     <div class="form-group mb-2">
         <label for="fAcnt">From Account</label>
-        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount"/>
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount" value="{{FromAccount}}"/>
         <br>  
     </div>
     <div class="form-group mb-2">
-        <label for="acntno" class="form-label">To Account</label>
-        <input type="text" id="acntno" name="AccountNumber" class="form-control"   formControlName="AccountNumber"/>
-       
+        <label for="beneficiary" class="form-label">To Account</label>  
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount" value="{{ToAccount}}"/> 
         <br>  
     </div>
     
     <div class="form-group mb-2">
-        <label for="racntno" class="form-label">Re-enter Account Number</label>
-        <input type="number" id="racntno" name="RAccountNumber" class="form-control"   formControlName="RAccountNumber"/>
+        <label for="amt" class="form-label">Amount</label>
+        <input type="number" id="Amt" name="Amount" class="form-control" formControlName="Amount" value="{{Amount}}"/>
         <br>  
     </div>
+    
     <div class="form-group mb-2">
-        <label for="bname" class="form-label">Nick Name</label>
-        <input type="text" id="nname" name="NickName" class="form-control"  aria-describedby="inputFieldHelp" formControlName="NickName"/>
+        <label for="tDate" class="form-label">Transaction Date</label>
+        <input type="date" id="tDate" name="TransactionDate" class="form-control" formControlName="TransactionDate" value="{{TransactionDate}}"/>
         <br>  
     </div>
-    <button class="btn btn-primary bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" >Confirm</button>
-    <button class="btn btn-primary bg-primary mb-4 form-inline" type="Submit" (click)="Return()" >Back</button>
+
+    <div class="form-group mb-2">
+        <label for="mtinst" class="form-label">Maturity Instructions</label>
+        <input type="text" id="mtinst" name="MaturityInstructions" class="form-control" formControlName="MaturityInstructions" value="{{MaturityInstructions}}"/>
+        <br>  
+    </div>
+
+    <div class="form-group mb-2">
+        <label for="remark" class="form-label">Remark</label>
+        <input type="text" id="remark" name="Remark" class="form-control" formControlName="Remark" value="{{Remark}}"/>
+        <br>  
+    </div>
+    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" >Confirm</button>
 </form>
 </div>
 </div>
-
-<!-- <p>Transaction Details</p>
-
+<!--
 <h2 style="text-align:center;">IMPS Transfer</h2>
 <br>
 <div class="d-flex justify-content-center">
-<form [formGroup]="TransactionForm" >
+<form [formGroup]="IMPSForm" >
     <table>
         <tr>
             <td><label for="fAcnt">From Account</label></td>
-            <td><input type="number" id="fAcnt" name="FromAccount" formControlName="FromAccount" /></td>
+            <td><input type="number" id="fAcnt" name="FromAccount" formControlName="FromAccount"/></td>
         </tr>
         <tr>
             <td><label for="tAcnt">To Account</label></td>
-            <td><input type="number" id="tAcnt" name="ToAccount"  formControlName="ToAccount" /></td>
-            
+            <td><input type="number" id="tAcnt" name="ToAccount" formControlName="ToAccount"/></td>
+            <td><button (click)="AddPayee()">Add New<small>+</small></button></td>
         </tr>
         <tr>
             <td><label for="amt">Amount</label></td>
@@ -68,12 +77,13 @@
         <tr>
             <td colspan="2"  style="text-align:center;">
                 <button (click)="Redirect()">
-                <input type="submit" value="Confirm "/></button>
-                
+                <input type="submit" value="Save " [disabled]="!IMPSForm.valid"/></button>
+                <input type="reset" value="Reset"/>
+                <input type="submit" value="Save as template"/>
+                <input type="submit" value="Continue"/>
            </td>
         </tr>
     </table>
 </form>
-</div> -->
-
-
+</div>
+-->

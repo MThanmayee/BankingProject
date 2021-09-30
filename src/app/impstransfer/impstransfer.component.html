@@ -10,8 +10,15 @@
         <br>  
     </div>
     <div class="form-group mb-2">
-        <label for="acntno" class="form-label">To Account</label>
-        <input type="text" id="acntno" name="AccountNumber" class="form-control"   formControlName="AccountNumber"/>
+        <label for="beneficiary" class="form-label">To Account</label>
+        <select  id="beneficiary" name="ToAccount" class="form-control" formControlName="ToAccount" required>
+                <option *ngFor="let i of beneficiaries" [value]="i.toAccount">{{i.toAccount}}</option> >
+           
+           
+            <!-- <option value="UNIB0799893">UBIN0799893</option>
+            <option value="IDBI Bank">IDBI0015536</option> -->
+            
+        </select>
         <button class="btn btn-primary bg-primary mb-4 form-inline"(click)="AddPayee()">Add New<small>+</small></button>
         <br>  
     </div>
@@ -39,7 +46,7 @@
         <input type="text" id="remark" name="Remark" class="form-control" formControlName="Remark"/>
         <br>  
     </div>
-    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" [disabled]="!IMPSForm.valid">Continue</button>
+    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="submit" (click)="Redirect()" [disabled]="!IMPSForm.valid">Continue</button>
 </form>
 </div>
 </div>

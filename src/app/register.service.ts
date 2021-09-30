@@ -18,9 +18,13 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
-  GetBenificiary(id:number)
+  AddTransactions(transactions:Transactions)
   {
-    return this.client.get(this.url+'/getbenificiary?accountnumber='+id)
+    return this.client.post(this.url+'/newtransactions',JSON.stringify(transactions), this.httpOptions)
+  }
+  GetBenificiary(id:number):Observable<any[]>
+  {
+    return this.client.get<any[]>(this.url+'/getbenificiary?accountnumber='+id)
   }
   NewBenificiary(benificiary:Benificiaries)
   {
