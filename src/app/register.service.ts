@@ -31,6 +31,7 @@ export class RegisterService {
   }
   Login(user:Account)
   {
+    console.log("hi")
     return this.client.post(this.url+"/login",JSON.stringify(user),this.httpOptions)
   }
   Register(user:Account):Observable<Account>
