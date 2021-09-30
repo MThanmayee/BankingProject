@@ -18,10 +18,14 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
+  GetBenificiary(id:number)
+  {
+    return this.client.get(this.url+'/getbenificiary?accountnumber='+id)
+  }
   NewBenificiary(benificiary:Benificiaries)
   {
     console.log('in service')
-    return this.client.post(this.url+'/newbenificiary',JSON.stringify(benificiary),this.httpOptions)
+    return this.client.post(this.url,JSON.stringify(benificiary),this.httpOptions)
   }
   GetNumber(customerid:number)
   {

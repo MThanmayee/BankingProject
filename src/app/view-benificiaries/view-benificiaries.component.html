@@ -14,11 +14,11 @@
             </tr>
           </thead>
           <tbody>
-              <tr>
+              <tr *ngFor= 'let i of beneficiaries'>
                  <tH><input type="radio" /></tH> 
-                  <th><input></th>
-                 <th><input></th> 
-                 <th><input></th> 
+                  <th><input value="{{i.benificiaryName}}"></th>
+                 <th><input value="{{i.toAccount}}"></th> 
+                 <th><input value="{{i.nickName}}"></th> 
               </tr>
           </tbody>
     
