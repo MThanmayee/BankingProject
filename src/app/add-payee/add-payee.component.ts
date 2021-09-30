@@ -13,6 +13,7 @@ export class AddPayeeComponent implements OnInit {
 
   AddPayeeForm:FormGroup = new FormGroup(
     {
+      FromAccount: new FormControl(),
       BenificiaryName:new FormControl("",Validators.required),
       AccountNumber:new FormControl("",Validators.required),
       RAccountNumber:new FormControl("",Validators.required),
@@ -20,19 +21,15 @@ export class AddPayeeComponent implements OnInit {
       NickName:new FormControl("",Validators.required)
     }
   )
-  newbenificiary!:Benificiaries;
+  //newbenificiary!:Benificiaries;
   accountnumber!:any;
   statusObj: any = {};
   status!: string;
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
-    this.accountnumber = sessionStorage.getItem('accountnumber')
-    this.newbenificiary.BenificiaryName = this.AddPayeeForm.value.BenificiaryName;
-    this.newbenificiary.ToAccount = this.AddPayeeForm.value.AccountNumber;
-    this.newbenificiary.NickName = this.AddPayeeForm.value.NickName;
-    this.newbenificiary.IFSCCode = this.AddPayeeForm.value.IFSCCode;
-    this.newbenificiary.FromAccount = this.accountnumber;
+  this.accountnumber = sessionStorage.getItem('accountnumber')
+   
   }
   get BenificiaryName()
   {
@@ -49,7 +46,15 @@ export class AddPayeeComponent implements OnInit {
   
   Redirect()
   {
-    this.service.NewBenificiary(this.newbenificiary).subscribe(data=>
+    console.log(this.AddPayeeForm.value)
+    
+    // this.newbenificiary.BenificiaryName = this.AddPayeeForm.value.BenificiaryName;
+    // this.newbenificiary.ToAccount = this.AddPayeeForm.value.AccountNumber;
+    // this.newbenificiary.NickName = this.AddPayeeForm.value.NickName;
+    // this.newbenificiary.IFSCCode = this.AddPayeeForm.value.IFSCCode;
+    // this.newbenificiary.FromAccount = this.accountnumber;
+
+    this.service.NewBenificiary(this.AddPayeeForm.value).subscribe(data=>
       {
         console.log('inside ts')
         this.statusObj = data;
