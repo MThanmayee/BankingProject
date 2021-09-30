@@ -2,7 +2,38 @@
     <h4 class="text-center" id="head">Add new Benificiary</h4>
     <div class="container pb-sm-3 m-sm">
 
-<form [formGroup]="AddPayeeForm" >
+<form [formGroup]="AddPayeeForm" (ngSubmit)="Redirect()" >
+    
+    <div class="form-group mb-2">
+        <label for="bname" class="form-label">Benificiary Name</label>
+        <input type="text" id="bname" name="BenificiaryName" class="form-control"   formControlName="BenificiaryName"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="acntno" class="form-label">Account Number</label>
+        <input type="text" id="acntno" name="AccountNumber" class="form-control"   formControlName="AccountNumber"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="racntno" class="form-label">Re-enter Account Number</label>
+        <input type="number" id="racntno" name="RAccountNumber" class="form-control"   formControlName="RAccountNumber"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="ifsccode" class="form-label">IFSC Code</label>
+        <input type="text" id="ifsccode" name="ifsccode" class="form-control"   formControlName="IFSCCode"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="bname" class="form-label">Nick Name</label>
+        <input type="text" id="nname" name="NickName" class="form-control"  aria-describedby="inputFieldHelp" formControlName="NickName"/>
+        <br>  
+    </div>
+    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" [disabled]="!AddPayeeForm.valid">Save as Benificiary</button>
+</form>
+</div>
+</div>
+    <!--
     <table>
         <tr>
             <td><label for="bname" class="form-label">Benificiary Name</label></td>
@@ -29,8 +60,57 @@
         <br>
         <tr><td colspan="2"  style="text-align:center;"><button (click)="Redirect()"><input type="submit" value="Save as Benificiary" [disabled]="!AddPayeeForm.valid"/></button></td></tr>
     </table>
-</form>
-</div>
-</div>
 
+
+
+<div class="bg-white" id="lwhole">
+    <h4 class="text-center" id="head">Login to your Account</h4>
+    <div class="container pb-sm-3 m-sm">
+        <form [formGroup]="ContactForm" (ngSubmit)="SubmitRedirect()">
+            <div class="form-group mb-2">
+
+                <label for="customerid"><b>User ID</b></label>
+                <input type="number" placeholder="Enter User ID" class="form-control" name="customerid" formControlName="customerid"/>
+                <br>  
+            </div>
+
+            <div *ngIf="!customerid?.valid && (customerid ?.dirty || customerid ?.touched)" class="error text-danger" role="alert">
+                <div *ngIf="customerid ?.errors?.required">
+                  User Name is required
+                </div>
+                
+            </div>
+
+
+            <div class="form-group mb-2">
+                <label for="psw"><b>Password</b></label>
+    <input type="text" placeholder="Enter Password" class="form-control" name="psw" formControlName="password"  />
+    <br>
+            </div>
+
+            <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="error text-danger" role="alert">
+                <div *ngIf="password?.errors?.required">--><!--here the name firstname is from get method that is inside the ts file-->
+              <!--    Password is required
+                </div>
+                <div *ngIf="password?.errors?.pattern">
+                    Password pattern not macthing
+                  </div>
+            </div>
+
+            <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="SubmitRedirect()">Login</button>
+            <div class="panel panel-default bg-light">
+                <div class="col-md-12 text-center pr-sm-4 pt-sm-4">
+                    <a href="/OpenAccount">First Time User? Register</a>
+                </div>
+                <div class="col-md-12 text-center pr-sm-4 pt-sm-4">
+                    <a href="/ForgotUserID">Forgot User ID?</a>
+                </div>
+                <div class="col-md-12 text-center pr-sm-4 pt-sm-4">
+                    <a href="/ForgotPassword">Forgot Password?</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>-->
 

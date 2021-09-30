@@ -1,4 +1,38 @@
-<p>Transaction Details</p>
+<div class="bg-white" id="lwhole">
+    <h4 class="text-center" id="head">IMPS Transfer</h4>
+    <div class="container pb-sm-3 m-sm">
+
+<form [formGroup]="TransactionForm" (ngSubmit)="Redirect()" >
+    
+    <div class="form-group mb-2">
+        <label for="fAcnt">From Account</label>
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="acntno" class="form-label">To Account</label>
+        <input type="text" id="acntno" name="AccountNumber" class="form-control"   formControlName="AccountNumber"/>
+       
+        <br>  
+    </div>
+    
+    <div class="form-group mb-2">
+        <label for="racntno" class="form-label">Re-enter Account Number</label>
+        <input type="number" id="racntno" name="RAccountNumber" class="form-control"   formControlName="RAccountNumber"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="bname" class="form-label">Nick Name</label>
+        <input type="text" id="nname" name="NickName" class="form-control"  aria-describedby="inputFieldHelp" formControlName="NickName"/>
+        <br>  
+    </div>
+    <button class="btn btn-primary bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" >Confirm</button>
+    <button class="btn btn-primary bg-primary mb-4 form-inline" type="Submit" (click)="Return()" >Back</button>
+</form>
+</div>
+</div>
+
+<!-- <p>Transaction Details</p>
 
 <h2 style="text-align:center;">IMPS Transfer</h2>
 <br>
@@ -40,6 +74,6 @@
         </tr>
     </table>
 </form>
-</div>
+</div> -->
 
 

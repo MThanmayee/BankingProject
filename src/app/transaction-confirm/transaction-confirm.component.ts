@@ -25,4 +25,8 @@ export class TransactionConfirmComponent implements OnInit {
   {
     this.router.navigateByUrl("/TransactionSuccessful");
   }
+  Return()
+  {
+    this.router.navigateByUrl("/IMPS")
+  }
 }
