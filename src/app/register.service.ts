@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { UserProfile } from './user-profile';
 import { Account } from './account';
 import { Transactions } from './transactions';
+import { Benificiaries } from './benificiaries';
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  private url = "https://localhost:44378/api/account";
+  private url = "https://localhost:5001/api/account";
   httpOptions = {
     headers : new HttpHeaders(
       {
@@ -17,6 +18,11 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
+  NewBenificiary(benificiary:Benificiaries)
+  {
+    console.log('in service')
+    return this.client.post(this.url+'/newbenificiary',JSON.stringify(benificiary),this.httpOptions)
+  }
   GetNumber(customerid:number)
   {
     return this.client.get(this.url+'/getnumber?customerid='+customerid)

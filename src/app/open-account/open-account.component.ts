@@ -37,6 +37,7 @@ export class OpenAccountComponent implements OnInit {
   });
 
   status!: string;
+  
   statusObj: any = {};
   cpass: string = "";
   constructor(private service:RegisterService, private router:Router) { }
