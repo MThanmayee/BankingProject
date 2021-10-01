@@ -1,5 +1,50 @@
+<div class="bg-white" id="lwhole">
+    <h4 class="text-center" id="head">RTGS Transfer</h4>
+    <div class="container pb-sm-3 m-sm">
 
-<h2 style="text-align:center;">RTGS Transfer</h2>
+<form [formGroup]="RTGSForm" (ngSubmit)="Redirect()" >
+    
+    <div class="form-group mb-2">
+        <label for="fAcnt">From Account</label>
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="acntno" class="form-label">To Account</label>
+        <input type="text" id="acntno" name="AccountNumber" class="form-control"   formControlName="AccountNumber"/>
+        <button class="btn btn-primary bg-primary mb-4 form-inline"(click)="AddPayee()">Add New<small>+</small></button>
+        <br>  
+    </div>
+    
+    <div class="form-group mb-2">
+        <label for="amt" class="form-label">Amount</label>
+        <input type="number" id="Amt" name="Amount" class="form-control" formControlName="Amount"/>
+        <br>  
+    </div>
+    
+    <div class="form-group mb-2">
+        <label for="tDate" class="form-label">Transaction Date</label>
+        <input type="date" id="tDate" name="TransactionDate" class="form-control" formControlName="TransactionDate"/>
+        <br>  
+    </div>
+
+    <div class="form-group mb-2">
+        <label for="mtinst" class="form-label">Maturity Instructions</label>
+        <input type="text" id="mtinst" name="MaturityInstructions" class="form-control" formControlName="MaturityInstructions"/>
+        <br>  
+    </div>
+
+    <div class="form-group mb-2">
+        <label for="remark" class="form-label">Remark</label>
+        <input type="text" id="remark" name="Remark" class="form-control" formControlName="Remark"/>
+        <br>  
+    </div>
+    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" [disabled]="!RTGSForm.valid">Continue</button>
+</form>
+</div>
+</div>
+
+<!-- <h2 style="text-align:center;">RTGS Transfer</h2>
 <br>
 <div class="d-flex justify-content-center">
 <form [formGroup]="RTGSForm" >
@@ -42,3 +87,4 @@
 </form>
 </div>
 
+ -->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-impstransfer',
@@ -9,8 +10,12 @@ import { Router } from '@angular/router';
 })
 export class IMPSTransferComponent implements OnInit {
 
+  accountnumber!: any
+  beneficiaries!: any[]
+
   IMPSForm:FormGroup = new FormGroup(
     {
+      TransactionID: new FormControl(),
       FromAccount:new FormControl("",Validators.required),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
@@ -19,16 +24,35 @@ export class IMPSTransferComponent implements OnInit {
       Remark:new FormControl("",Validators.required)
     }
   )
-  constructor(private router:Router) { }
+  constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
+    console.log("hi")
+    this.accountnumber = sessionStorage.getItem('accountnumber')
+    console.log(this.accountnumber)
+    this.service.GetBenificiary(this.accountnumber).subscribe(
+      data=>{
+
+        this.beneficiaries=data
+        console.log(data)
+        console.log(this.beneficiaries)
+      }
+    )
+   
   }
+ 
   AddPayee()
   {
     this.router.navigateByUrl("/AddPayee")
   }
   Redirect()
   {
+    sessionStorage.setItem('transactionid',this.IMPSForm.value.TransactionID)
+     sessionStorage.setItem('ToAccount',this.IMPSForm.value.ToAccount)
+     sessionStorage.setItem('Amount',this.IMPSForm.value.Amount)
+     sessionStorage.setItem('TransactionDate',this.IMPSForm.value.TransactionDate)
+     sessionStorage.setItem('MaturityInstrctions',this.IMPSForm.value.MaturityInstructions)
+     sessionStorage.setItem('Remark',this.IMPSForm.value.Remark)
     this.router.navigateByUrl("/TransactionConfirm")
   }
 }

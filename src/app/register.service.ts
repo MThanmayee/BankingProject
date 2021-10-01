@@ -4,7 +4,11 @@ import { Observable } from 'rxjs';
 import { UserProfile } from './user-profile';
 import { Account } from './account';
 import { Transactions } from './transactions';
+<<<<<<< HEAD
 import { Admin } from './admin';
+=======
+import { Benificiaries } from './benificiaries';
+>>>>>>> 4b5b2271f36f4979de3e1ea7ddb132bbb20a3750
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +22,27 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
+  getbydate(fromdate:Date, todate: Date)
+  {
+    return this.client.get(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00')
+  }
+  UpdateBalance(transactions:Transactions)
+  {
+    return this.client.put(this.url+'/accountbalance',JSON.stringify(transactions),this.httpOptions)
+  }
+  AddTransactions(transactions:Transactions)
+  {
+    return this.client.post(this.url+'/newtransactions',JSON.stringify(transactions), this.httpOptions)
+  }
+  GetBenificiary(id:number):Observable<any[]>
+  {
+    return this.client.get<any[]>(this.url+'/getbenificiary?accountnumber='+id)
+  }
+  NewBenificiary(benificiary:Benificiaries)
+  {
+    console.log('in service')
+    return this.client.post(this.url,JSON.stringify(benificiary),this.httpOptions)
+  }
   GetNumber(customerid:number)
   {
     return this.client.get(this.url+'/getnumber?customerid='+customerid)
@@ -32,6 +57,7 @@ export class RegisterService {
   }
   Login(user:Account)
   {
+    console.log("hi")
     return this.client.post(this.url+"/login",JSON.stringify(user),this.httpOptions)
   }
   Register(user:Account):Observable<Account>

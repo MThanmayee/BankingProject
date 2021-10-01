@@ -2,6 +2,14 @@
 
 
 <div class="container d-flex justify-content-center">
+  <form [formGroup]="Searchform">
+    <label for="fromdate">FromDate</label>
+    <input type="date" id="fromdate" name="fromdate" formControlName="Fromdate"/>
+    <label for="fromdate">ToDate</label>
+    <input type="date" id="todate" name="todate" formControlName="Todate"/>
+    <button (click)="search()">Search</button>
+  </form>
+ 
   
     <table class="table" >
         <thead>
