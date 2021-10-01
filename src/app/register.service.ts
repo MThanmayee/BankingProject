@@ -4,11 +4,8 @@ import { Observable } from 'rxjs';
 import { UserProfile } from './user-profile';
 import { Account } from './account';
 import { Transactions } from './transactions';
-<<<<<<< HEAD
 import { Admin } from './admin';
-=======
 import { Benificiaries } from './benificiaries';
->>>>>>> 4b5b2271f36f4979de3e1ea7ddb132bbb20a3750
 @Injectable({
   providedIn: 'root'
 })

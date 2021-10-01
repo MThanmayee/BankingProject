@@ -1,2 +1,37 @@
 
-<h1>transaction successfull</h1>
+<div class="container d-flex justify-content-center">
+    
+   
+    
+      <table class="table" >
+          <thead>
+              <tr>
+            
+                <th>Transaction ID</th>
+                
+                <th>To Account</th>
+                <th>Amount</th>
+                <th>From Account</th>
+               <th>On</th>
+                <th>Remarks</th>
+  
+              </tr>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor = "let i of transactions">
+                  <td><input type="radio" /></td> 
+                  <td>{{i. transactionId}}</td>
+                  
+                  <td>{{i.toAccount}}</td>
+                  <td>{{i.amount}}</td>
+                  <td>{{i.fromAccount}}</td>
+                  <td>{{i.date }}</td>
+                  <td>{{i.remarks}}</td>
+                  
+                  
+              </tr>
+            </tbody>
+      
+      </table>
+  </div>
