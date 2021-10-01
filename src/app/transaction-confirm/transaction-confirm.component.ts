@@ -10,38 +10,42 @@ import { RegisterService } from '../register.service';
 })
 export class TransactionConfirmComponent implements OnInit {
 
-  FromAccount!: any
-  ToAccount!:any
-  Amount!: any
-  TransactionDate!:any
-  MaturityInstructions!:any
-  Remark!: any
-
   statusObj: any = {};
   status!: string;
 
   TransactionForm:FormGroup = new FormGroup(
     {
-      FromAccount:new FormControl("",Validators.required),
-      ToAccount:new FormControl("",Validators.required),
-      Amount:new FormControl("",Validators.required),
-      TransactionDate:new FormControl("",Validators.required),
-      MaturityInstructions:new FormControl("",Validators.required),
-      Remark:new FormControl("",Validators.required)
+      TransactionID: new FormControl(parseInt(sessionStorage.getItem('transactionid')!.toString())),
+      FromAccount:new FormControl(parseInt(sessionStorage.getItem('accountnumber')!.toString())),
+      ToAccount:new FormControl(parseInt(sessionStorage.getItem('ToAccount')!.toString())),
+      Amount:new FormControl(parseInt(sessionStorage.getItem('Amount')!.toString())),
+      TransactionDate:new FormControl(sessionStorage.getItem('TransactionDate')),
+      MaturityInstructions:new FormControl(sessionStorage.getItem('MaturityInstrctions')),
+      Remark:new FormControl(sessionStorage.getItem('Remark'))
     })
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
-    this.FromAccount= sessionStorage.getItem('accountnumber')
-    this.ToAccount=sessionStorage.getItem('ToAccount')
-    this.Amount= sessionStorage.getItem('Amount')
-     this.TransactionDate=sessionStorage.getItem('TransactionDate',)
-    this.MaturityInstructions= sessionStorage.getItem('MaturityInstrctions')
-    this.Remark= sessionStorage.getItem('Remarks')
+   
   }
   Redirect()
   {
     this.service.AddTransactions(this.TransactionForm.value).subscribe(
+      data=>{
+        console.log('inside ts')
+        this.statusObj = data;
+        console.log(this.statusObj);
+        if(this.statusObj.status == "added") {
+          //this.router.navigateByUrl("/TransactionSuccessful");
+          console.log(this.statusObj)
+        }
+        else {
+          this.statusObj = "Error";
+        }
+      } 
+    )
+   /*  console.log(this.statusObj)
+    this.service.UpdateBalance(this.TransactionForm.value).subscribe(
       data=>{
         console.log('inside ts')
         this.statusObj = data;
@@ -53,7 +57,7 @@ export class TransactionConfirmComponent implements OnInit {
           this.statusObj = "Error";
         }
       } 
-    ) 
+    ) */
   }
   Return()
   {

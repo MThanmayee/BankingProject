@@ -3,39 +3,45 @@
     <div class="container pb-sm-3 m-sm">
 
 <form [formGroup]="TransactionForm" (ngSubmit)="Redirect()" >
+
+    <div class="form-group mb-2">
+        <label for="id">Transaction ID</label>
+        <input type="number" id="id" name="TransactionID"  class = "form-control" formControlName="TransactionID"/>
+        <br>  
+    </div>
     
     <div class="form-group mb-2">
         <label for="fAcnt">From Account</label>
-        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount" value="{{FromAccount}}"/>
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount" />
         <br>  
     </div>
     <div class="form-group mb-2">
         <label for="beneficiary" class="form-label">To Account</label>  
-        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount" value="{{ToAccount}}"/> 
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount"/> 
         <br>  
     </div>
     
     <div class="form-group mb-2">
         <label for="amt" class="form-label">Amount</label>
-        <input type="number" id="Amt" name="Amount" class="form-control" formControlName="Amount" value="{{Amount}}"/>
+        <input type="number" id="Amt" name="Amount" class="form-control" formControlName="Amount"/>
         <br>  
     </div>
     
     <div class="form-group mb-2">
         <label for="tDate" class="form-label">Transaction Date</label>
-        <input type="date" id="tDate" name="TransactionDate" class="form-control" formControlName="TransactionDate" value="{{TransactionDate}}"/>
+        <input type="date" id="tDate" name="TransactionDate" class="form-control" formControlName="TransactionDate"/>
         <br>  
     </div>
 
     <div class="form-group mb-2">
         <label for="mtinst" class="form-label">Maturity Instructions</label>
-        <input type="text" id="mtinst" name="MaturityInstructions" class="form-control" formControlName="MaturityInstructions" value="{{MaturityInstructions}}"/>
+        <input type="text" id="mtinst" name="MaturityInstructions" class="form-control" formControlName="MaturityInstructions"/>
         <br>  
     </div>
 
     <div class="form-group mb-2">
         <label for="remark" class="form-label">Remark</label>
-        <input type="text" id="remark" name="Remark" class="form-control" formControlName="Remark" value="{{Remark}}"/>
+        <input type="text" id="remark" name="Remark" class="form-control" formControlName="Remark"/>
         <br>  
     </div>
     <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" >Confirm</button>

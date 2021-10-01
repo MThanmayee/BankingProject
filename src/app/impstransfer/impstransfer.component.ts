@@ -15,7 +15,7 @@ export class IMPSTransferComponent implements OnInit {
 
   IMPSForm:FormGroup = new FormGroup(
     {
-
+      TransactionID: new FormControl(),
       FromAccount:new FormControl("",Validators.required),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
@@ -47,11 +47,12 @@ export class IMPSTransferComponent implements OnInit {
   }
   Redirect()
   {
+    sessionStorage.setItem('transactionid',this.IMPSForm.value.TransactionID)
      sessionStorage.setItem('ToAccount',this.IMPSForm.value.ToAccount)
      sessionStorage.setItem('Amount',this.IMPSForm.value.Amount)
      sessionStorage.setItem('TransactionDate',this.IMPSForm.value.TransactionDate)
      sessionStorage.setItem('MaturityInstrctions',this.IMPSForm.value.MaturityInstructions)
-     sessionStorage.setItem('Remarks',this.IMPSForm.value.Remarks)
+     sessionStorage.setItem('Remark',this.IMPSForm.value.Remark)
     this.router.navigateByUrl("/TransactionConfirm")
   }
 }

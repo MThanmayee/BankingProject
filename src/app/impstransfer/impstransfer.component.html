@@ -3,6 +3,12 @@
     <div class="container pb-sm-3 m-sm">
 
 <form [formGroup]="IMPSForm" (ngSubmit)="Redirect()" >
+
+    <div class="form-group mb-2">
+        <label for="id">Transaction ID</label>
+        <input type="number" id="id" name="TransactionID"  class = "form-control" formControlName="TransactionID" />
+        <br>  
+    </div>
     
     <div class="form-group mb-2">
         <label for="fAcnt">From Account</label>

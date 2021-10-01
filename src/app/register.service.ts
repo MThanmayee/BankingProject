@@ -18,6 +18,14 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
+  getbydate(fromdate:Date, todate: Date)
+  {
+    return this.client.get(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00')
+  }
+  UpdateBalance(transactions:Transactions)
+  {
+    return this.client.put(this.url+'/accountbalance',JSON.stringify(transactions),this.httpOptions)
+  }
   AddTransactions(transactions:Transactions)
   {
     return this.client.post(this.url+'/newtransactions',JSON.stringify(transactions), this.httpOptions)

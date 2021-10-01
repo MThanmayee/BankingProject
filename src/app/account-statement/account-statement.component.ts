@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
 import { Account } from '../account';
 import { Transactions } from '../transactions';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-account-statement',
@@ -10,8 +11,15 @@ import { Transactions } from '../transactions';
   styleUrls: ['./account-statement.component.css']
 })
 export class AccountStatementComponent implements OnInit {
+  fromdate:any;
+  todate:any;
   transactions!:any;
   accountno!: any;
+
+  Searchform=new FormGroup({
+    Fromdate:new FormControl(""),
+    Todate:new FormControl("")
+  });
   constructor(private service:RegisterService,private router:Router) { }
 
   ngOnInit(): void 
@@ -23,6 +31,21 @@ export class AccountStatementComponent implements OnInit {
 
         console.log(this.transactions)
       })
+  }
+
+  search()
+  {
+    this.fromdate=this.Searchform.value.Fromdate
+    this.todate=this.Searchform.value.Todate
+    console.log(this.fromdate)
+    console.log(this.todate)
+    this.service.getbydate(this.fromdate,this.todate).subscribe(
+      data=>{
+        this.transactions=data;
+
+        console.log(this.transactions)
+      }
+    )
   }
 
 }
