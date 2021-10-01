@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UserProfile } from './user-profile';
 import { Account } from './account';
 import { Transactions } from './transactions';
+import { Admin } from './admin';
 @Injectable({
   providedIn: 'root'
 })
@@ -50,6 +51,7 @@ export class RegisterService {
   {
     return this.client.get<Account[]>(this.url+'/Account');
   }
+
   confirmotp(user:Account):Observable<Account>
   {
     return this.client.put(this.url+"/confirmotp",JSON.stringify(user),this.httpOptions)
@@ -72,6 +74,20 @@ export class RegisterService {
   confirmotp2(user:Account):Observable<Account>
   {
     return this.client.put(this.url+"/confirmotp2",JSON.stringify(user),this.httpOptions)
+  }
+  
+  AdminLogin(user:Admin)
+  {
+    return this.client.post(this.url+"/adminlogin",JSON.stringify(user),this.httpOptions)
+  }
+
+  getAllusers(): Observable<UserProfile[]> {
+    return this.client.get<UserProfile[]>(this.url + '/displayinfo/')
+    
+  }
+  Approve(user:UserProfile)
+  {
+    return this.client.post(this.url+"/approve",JSON.stringify(user),this.httpOptions)
   }
 }
 

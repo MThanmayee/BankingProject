@@ -4,16 +4,16 @@
         <form [formGroup]="ContactForm" (ngSubmit)="SubmitInfo()">
             <div class="form-group mb-2">
 
-                <label for="uname"><b>AdminID</b></label>
-                <input type="text" placeholder="Enter User ID" class="form-control" name="uname" formControlName="username"/>
+                <label for="id"><b>AdminID</b></label>
+                <input type="number" placeholder="Enter User ID" class="form-control" name="id" formControlName="id"/>
                 <br>  
             </div>
 
-            <div *ngIf="!username?.valid && (username?.dirty || username?.touched)" class="error text-danger" role="alert">
-                <div *ngIf="username?.errors?.required">
+            <div *ngIf="!id?.valid && (id?.dirty || id?.touched)" class="error text-danger" role="alert">
+                <div *ngIf="id?.errors?.required">
                   User Name is required
                 </div>
-                <div *ngIf="username?.errors?.minlength">
+                <div *ngIf="id?.errors?.minlength">
                     User Name length should be 6
                   </div>
             </div>
@@ -34,7 +34,7 @@
                   </div>
             </div>
 
-            <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="SubmitRedirect()">Login</button>
+            <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit">Login</button>
             
         </form>
     </div>

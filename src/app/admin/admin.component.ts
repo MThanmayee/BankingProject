@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,25 +10,25 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
   ContactForm=new FormGroup({
-    username:new FormControl("",[Validators.required,Validators.minLength(3)]),
-    password:new FormControl("",[Validators.required,Validators.pattern("^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,12}$")])
+    id:new FormControl("",[Validators.required,Validators.minLength(3)]),
+    password:new FormControl("",[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}')])
   });
-  constructor(private route:Router) { }
+  constructor(private route:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
   }
-  get username(){
-    return this.ContactForm.get('username');
+  get id(){
+    return this.ContactForm.get('id');
   }
   get password(){
     return this.ContactForm.get('password');
   }
 
   SubmitInfo(){
-    console.log(this.ContactForm.value)
+    this.service.AdminLogin(this.ContactForm.value).subscribe(res => {
+      
+       this.route.navigateByUrl("/AdminHome");
+    });
   }
-  SubmitRedirect()
-  {
-    this.route.navigateByUrl("/AdminHome");
-  }
+  
 }

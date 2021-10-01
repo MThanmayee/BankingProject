@@ -37,9 +37,6 @@
             </th>
            
             <th>
-                ACCOUNT TYPE
-            </th>
-            <th>
                 REFERENCE NUMBER
             </th>
             <th>
@@ -47,7 +44,20 @@
             </th>
         </tr>
     </thead>
+  
+    <tbody>
+      <tr *ngFor="let user of userprofile">
+          <td>{{user.firstName}}</td>
+          <td>{{user.emailId}}</td>
+          <td>{{user.mobileNumber}}</td>
+          <td>{{user.referenceNumber}}</td>
+          <td>{{user.accountStatus}}</td>
+          <td>
+              <button (click)="submitinfo(user)">Approve status</button>
+          </td>
+      </tr>
+      </tbody>
+
     
 </table>
 
-<a [routerLink]="['/approval']">Approve status</a>
