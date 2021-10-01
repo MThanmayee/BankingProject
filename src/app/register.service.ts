@@ -19,9 +19,9 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
-  getbydate(fromdate:Date, todate: Date)
+  getbydate(fromdate:Date, todate: Date, accountnumber:String)
   {
-    return this.client.get(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00')
+    return this.client.get<Transactions[]>(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00&&accountnumber='+accountnumber)
   }
   UpdateBalance(transactions:Transactions)
   {

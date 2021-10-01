@@ -30,6 +30,7 @@ import { AccountSummaryComponent } from './account-summary/account-summary.compo
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
 import { Otp1Component } from './otp1/otp1.component';
 const routes: Routes = [
+  {path:"",component: HomeComponent},
   {path:"IMPS",component:IMPSTransferComponent},
   {path:"RTGS",component:RTGSTransferComponent},
   {path:"NEFT",component:NEFTTransferComponent},
