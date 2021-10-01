@@ -38,14 +38,16 @@ export class TransactionConfirmComponent implements OnInit {
     this.TransactionForm.value.MaturityInstructions=sessionStorage.getItem('MaturityInstrctions')
     this.TransactionForm.value.Remarks=sessionStorage.getItem('Remarks')
     console.log(this.TransactionForm.value)
+    
     this.service.AddTransactions(this.TransactionForm.value).subscribe(
       data=>{
         console.log('inside ts')
         this.statusObj = data;
+        this.router.navigateByUrl("/TransactionSuccessful");
         /* this.statusObj = data;
         console.log(this.statusObj);
         if(this.statusObj.status == "added") {
-          //this.router.navigateByUrl("/TransactionSuccessful");
+          
           console.log(this.statusObj)
         }
         else {
@@ -55,13 +57,13 @@ export class TransactionConfirmComponent implements OnInit {
       } 
     
     )
-    console.log(this.statusObj)
+  /*   console.log(this.statusObj)
     this.service.UpdateBalance(this.TransactionForm.value).subscribe(
       data=>{
         console.log('inside ts')
         this.router.navigateByUrl("/TransactionSuccessful");
       } 
-    )
+    ) */
   }
   Return()
   {

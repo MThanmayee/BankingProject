@@ -4,11 +4,8 @@ import { Observable } from 'rxjs';
 import { UserProfile } from './user-profile';
 import { Account } from './account';
 import { Transactions } from './transactions';
-<<<<<<< HEAD
 import { Admin } from './admin';
-=======
 import { Benificiaries } from './benificiaries';
->>>>>>> 4b5b2271f36f4979de3e1ea7ddb132bbb20a3750
 @Injectable({
   providedIn: 'root'
 })
@@ -72,6 +69,9 @@ export class RegisterService {
   getTransactions(accountnumber:number)
   {
     return this.client.get<Transactions[]>(this.url+'/transactions?AccountNumber='+accountnumber)
+  }
+  singletransaction(transactionId:number){
+    return this.client.get(this.url+'/singletransaction?transactionId='+transactionId)
   }
   getall():Observable<Account[]>
   {
