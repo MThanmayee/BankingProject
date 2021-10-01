@@ -19,9 +19,9 @@ export class IMPSTransferComponent implements OnInit {
       FromAccount:new FormControl("",Validators.required),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
-      TransactionDate:new FormControl("",Validators.required),
+      Date:new FormControl("",Validators.required),
       MaturityInstructions:new FormControl("",Validators.required),
-      Remark:new FormControl("",Validators.required)
+      Remarks:new FormControl("",Validators.required)
     }
   )
   constructor(private router:Router,private service:RegisterService) { }
@@ -50,9 +50,9 @@ export class IMPSTransferComponent implements OnInit {
     sessionStorage.setItem('transactionid',this.IMPSForm.value.TransactionID)
      sessionStorage.setItem('ToAccount',this.IMPSForm.value.ToAccount)
      sessionStorage.setItem('Amount',this.IMPSForm.value.Amount)
-     sessionStorage.setItem('TransactionDate',this.IMPSForm.value.TransactionDate)
+     sessionStorage.setItem('Date',this.IMPSForm.value.Date)
      sessionStorage.setItem('MaturityInstrctions',this.IMPSForm.value.MaturityInstructions)
-     sessionStorage.setItem('Remark',this.IMPSForm.value.Remark)
+     sessionStorage.setItem('Remarks',this.IMPSForm.value.Remarks)
     this.router.navigateByUrl("/TransactionConfirm")
   }
 }

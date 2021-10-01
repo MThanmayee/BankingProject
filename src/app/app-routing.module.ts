@@ -58,7 +58,8 @@ const routes: Routes = [
   {path:"AccountDetails",component:AccountDetailsComponent},
   {path:"AccountSummary",component:AccountSummaryComponent},
   {path:"SessionExpired",component:SessionExpiredComponent},
-  {path:"OTP1",component:Otp1Component}
+  {path:"OTP1",component:Otp1Component},
+  {path:"TransactionSuccessful",component:TransactionSuccessfulComponent}
 ];
 
 @NgModule({

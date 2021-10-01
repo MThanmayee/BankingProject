@@ -28,7 +28,7 @@ export class RegisterService {
   }
   AddTransactions(transactions:Transactions)
   {
-    return this.client.post(this.url+'/newtransactions',JSON.stringify(transactions), this.httpOptions)
+    return this.client.post(this.url+'/newtransaction',JSON.stringify(transactions), this.httpOptions)
   }
   GetBenificiary(id:number):Observable<any[]>
   {
