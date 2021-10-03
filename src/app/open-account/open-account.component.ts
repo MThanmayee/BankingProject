@@ -44,6 +44,7 @@ export class OpenAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.GetBank(11).subscribe(data=>{this.bank = data})
+    
   }
   get title()
   {
@@ -67,8 +68,8 @@ export class OpenAccountComponent implements OnInit {
   get aadhar(){
     return this.ContactForm.get('aadhar');
   }
-  get email(){
-    return this.ContactForm.get('email');
+  get emailId(){
+    return this.ContactForm.get('emailId');
   }
   get dob(){
     return this.ContactForm.get('dob');
@@ -134,7 +135,8 @@ export class OpenAccountComponent implements OnInit {
           this.status = "User Already Exist";
         }
       }
-    );
+      
+    );sessionStorage.setItem('email',this.ContactForm.value.emailId)
 
 
   }
