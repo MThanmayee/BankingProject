@@ -2,16 +2,25 @@
     <h4 class="text-center" id="head">NEFT Transfer</h4>
     <div class="container pb-sm-3 m-sm">
 
-<form [formGroup]="NEFTForm" (ngSubmit)="Redirect()">
-    
+<form [formGroup]="NEFTForm" (ngSubmit)="Redirect()" >
+
+    <div class="form-group mb-2">
+        <!-- <label for="id">Transaction ID</label> -->
+        <input type="hidden" id="id" name="TransactionID"  class = "form-control" formControlName="TransactionID" value="{{this.transactionid}}"/>
+        <br>  
+    </div>
+   
     <div class="form-group mb-2">
         <label for="fAcnt">From Account</label>
-        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount"/>
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount" readonly/>
         <br>  
     </div>
     <div class="form-group mb-2">
-        <label for="acntno" class="form-label">To Account</label>
-        <input type="text" id="acntno" name="AccountNumber" class="form-control"   formControlName="AccountNumber"/>
+        <label for="beneficiary" class="form-label">To Account</label>
+        <select  id="beneficiary" name="ToAccount" class="form-control" formControlName="ToAccount" required>
+                <option *ngFor="let i of beneficiaries" [value]="i.toAccount">{{i.benificiaryName}} - {{i.toAccount}}</option> >
+  
+        </select>
         <button class="btn btn-primary bg-primary mb-4 form-inline"(click)="AddPayee()">Add New<small>+</small></button>
         <br>  
     </div>
@@ -24,7 +33,12 @@
     
     <div class="form-group mb-2">
         <label for="tDate" class="form-label">Transaction Date</label>
-        <input type="date" id="tDate" name="TransactionDate" class="form-control" formControlName="TransactionDate"/>
+        <input type="date" id="tDate" name="Date" class="form-control" formControlName="Date"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="tpass" class="form-label">Transaction Password</label>
+        <input type="text" id="tpass" name="Tpassword" class="form-control" formControlName="Tpassword"/>
         <br>  
     </div>
 
@@ -36,69 +50,13 @@
 
     <div class="form-group mb-2">
         <label for="remark" class="form-label">Remark</label>
-        <input type="text" id="remark" name="Remark" class="form-control" formControlName="Remark"/>
+        <input type="text" id="remark" name="Remarks" class="form-control" formControlName="Remarks"/>
         <br>  
     </div>
-    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="Submit" (click)="Redirect()" [disabled]="!NEFTForm.valid">Continue</button>
-    <small style="font-style: italic;">
-        <dl>
-            <dt>Please note:</dt>
-            <dd>
-                <ol type="1">
-                    <li>
-                        Transactions will be execute on the next working day if they are scheduled for Sundays,National Holidays,NEFT Holidays(Declared by RBI).
-                    </li>
-                    <li>
-                        Timings for NEFT : Monday-Saturday(except 2nd and 4th Saturday) 6:00AM - 6:30PM
-                    </li>
-                </ol>
-            </dd>
-        </dl>
-        </small>
+    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="submit" [disabled]="!NEFTForm.valid">Continue</button>
 </form>
-
 </div>
-</div> 
+</div>
 
-<!--
-<form [formGroup]="NEFTForm" (ngSubmit)="Redirect()">
-    <table>
-        <tr>
-            <td><label for="fAcnt">From Account</label></td>
-            <td><input type="number" id="fAcnt" name="FromAccount" formControlName="FromAccount"/></td>
-        </tr>
-        <tr>
-            <td><label for="tAcnt">To Account</label></td>
-            <td><input type="number" id="tAcnt" name="ToAccount" formControlName="ToAccount"/></td>
-            <td><button (click)="AddPayee()">Add New<small>+</small></button></td>
-        </tr>
-        <tr>
-            <td><label for="amt">Amount</label></td>
-            <td><input type="number" id="Amt" name="Amount" formControlName="Amount"/></td>
-        </tr>
-        <tr>
-            <td><label for="tDate">Transaction Date</label></td>
-            <td><input type="date" id="tDate" name="TransactionDate" formControlName="TransactionDate"/></td>
-        </tr>
-        <tr>
-            <td><label for="mtinst">Maturity Instructions</label></td>
-            <td><input type="text" id="mtinst" name="MaturityInstructions" formControlName="MaturityInstructions"/></td>
-        </tr>
-        <tr>
-            <td><label for="remark">Remark</label></td>
-            <td><input type="text" id="remark" name="Remark" formControlName="Remark"/></td>
-        </tr>
-        <br>
-        <tr>
-            <td colspan="2"  style="text-align:center;">
-               <button (click) = "Redirect()"><input type="submit" value="Save " [disabled]="!NEFTForm.valid"/></button> 
-                <input type="reset" value="Reset"/>
-                <input type="submit" value="Save as template"/>
-                <input type="submit" value="Continue"/>
-           </td>
-        </tr>
-    </table>
-    
-</form>
-</div>-->
+
 

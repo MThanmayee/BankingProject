@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { UserProfile } from './user-profile';
 import { Account } from './account';
 import { Transactions } from './transactions';
 import { Admin } from './admin';
 import { Benificiaries } from './benificiaries';
+import {Observable, throwError,Subject} from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  private url = "https://localhost:44378/api/account";
+  public subject=new Subject<boolean>();
+  Url !:string;  
+  token !: string;  
+  header : any;  
+  private url = "https://localhost:5001/api/account";
   httpOptions = {
     headers : new HttpHeaders(
       {
@@ -19,6 +24,18 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
+  receivedStatus():Observable<boolean>
+  {
+    return this.subject.asObservable();
+  }
+  validatetpassword(accountnumber:number,password:string)
+  {
+    return this.client.get(this.url+'/validate?accountnumber='+accountnumber+'&&password='+password)
+  }
+  generatetransaction()
+  {
+    return this.client.get(this.url+'/generatetransaction')
+  }
   getbydate(fromdate:Date, todate: Date, accountnumber:String)
   {
     return this.client.get<Transactions[]>(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00&&accountnumber='+accountnumber)
@@ -64,6 +81,10 @@ export class RegisterService {
   GetAccountById(id:number)
   {
     return this.client.get<Account>(this.url+'/summary?accountnumber='+id);
+  }
+  GetBank(id:number)
+  {
+    return this.client.get(this.url+'/bankdetails?id='+id)
   }
 
   getTransactions(accountnumber:number)

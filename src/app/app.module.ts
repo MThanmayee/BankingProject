@@ -33,6 +33,7 @@ import { SessionExpiredComponent } from './session-expired/session-expired.compo
 import { HttpClientModule } from '@angular/common/http';
 import { Otp1Component } from './otp1/otp1.component';
 import { FAQsComponent } from './faqs/faqs.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { FAQsComponent } from './faqs/faqs.component';
     SessionExpiredComponent,
     Otp1Component,
     AccountStatementComponent,
-    FAQsComponent
+    FAQsComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

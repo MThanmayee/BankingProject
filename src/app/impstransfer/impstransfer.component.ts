@@ -12,15 +12,19 @@ export class IMPSTransferComponent implements OnInit {
 
   accountnumber!: any
   beneficiaries!: any[]
+  transactionid!:any
 
   IMPSForm:FormGroup = new FormGroup(
     {
       TransactionID: new FormControl(),
-      FromAccount:new FormControl("",Validators.required),
+      TransactionType:new FormControl(),
+      FromAccount:new FormControl(sessionStorage.getItem('accountnumber')),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
       Date:new FormControl("",Validators.required),
+      Tpassword:new FormControl("",Validators.required),
       MaturityInstructions:new FormControl("",Validators.required),
+      
       Remarks:new FormControl("",Validators.required)
     }
   )
@@ -28,6 +32,8 @@ export class IMPSTransferComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("hi")
+    this.service.generatetransaction().subscribe(data=>{this.transactionid=data})
+    console.log(this.transactionid)
     this.accountnumber = sessionStorage.getItem('accountnumber')
     console.log(this.accountnumber)
     this.service.GetBenificiary(this.accountnumber).subscribe(
@@ -47,7 +53,8 @@ export class IMPSTransferComponent implements OnInit {
   }
   Redirect()
   {
-    sessionStorage.setItem('transactionid',this.IMPSForm.value.TransactionID)
+    sessionStorage.setItem('transactionid',this.transactionid)
+    sessionStorage.setItem('transactiontype',"IMPS")
      sessionStorage.setItem('ToAccount',this.IMPSForm.value.ToAccount)
      sessionStorage.setItem('Amount',this.IMPSForm.value.Amount)
      sessionStorage.setItem('Date',this.IMPSForm.value.Date)
