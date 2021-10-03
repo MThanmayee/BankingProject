@@ -19,9 +19,9 @@ export class RegisterService {
     )
   }
   constructor(private client:HttpClient) { }
-  getbydate(fromdate:Date, todate: Date)
+  getbydate(fromdate:Date, todate: Date, accountnumber:String)
   {
-    return this.client.get(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00')
+    return this.client.get<Transactions[]>(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00&&accountnumber='+accountnumber)
   }
   UpdateBalance(transactions:Transactions)
   {
@@ -29,7 +29,7 @@ export class RegisterService {
   }
   AddTransactions(transactions:Transactions)
   {
-    return this.client.post(this.url+'/newtransactions',JSON.stringify(transactions), this.httpOptions)
+    return this.client.post(this.url+'/newtransaction',JSON.stringify(transactions), this.httpOptions)
   }
   GetBenificiary(id:number):Observable<any[]>
   {
@@ -69,6 +69,9 @@ export class RegisterService {
   getTransactions(accountnumber:number)
   {
     return this.client.get<Transactions[]>(this.url+'/transactions?AccountNumber='+accountnumber)
+  }
+  singletransaction(transactionId:number){
+    return this.client.get(this.url+'/singletransaction?transactionId='+transactionId)
   }
   getall():Observable<Account[]>
   {

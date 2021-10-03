@@ -37,7 +37,7 @@
     
     <div class="form-group mb-2">
         <label for="tDate" class="form-label">Transaction Date</label>
-        <input type="date" id="tDate" name="TransactionDate" class="form-control" formControlName="TransactionDate"/>
+        <input type="date" id="tDate" name="Date" class="form-control" formControlName="Date"/>
         <br>  
     </div>
 
@@ -49,10 +49,10 @@
 
     <div class="form-group mb-2">
         <label for="remark" class="form-label">Remark</label>
-        <input type="text" id="remark" name="Remark" class="form-control" formControlName="Remark"/>
+        <input type="text" id="remark" name="Remarks" class="form-control" formControlName="Remarks"/>
         <br>  
     </div>
-    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="submit" (click)="Redirect()" [disabled]="!IMPSForm.valid">Continue</button>
+    <button class="btn btn-primary btn-block bg-primary mb-4 form-inline" type="submit" [disabled]="!IMPSForm.valid">Continue</button>
 </form>
 </div>
 </div>

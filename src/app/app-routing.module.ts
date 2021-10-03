@@ -31,6 +31,7 @@ import { SessionExpiredComponent } from './session-expired/session-expired.compo
 import { Otp1Component } from './otp1/otp1.component';
 import { FAQsComponent } from './faqs/faqs.component';
 const routes: Routes = [
+  {path:"",component: HomeComponent},
   {path:"IMPS",component:IMPSTransferComponent},
   {path:"RTGS",component:RTGSTransferComponent},
   {path:"NEFT",component:NEFTTransferComponent},
@@ -60,7 +61,8 @@ const routes: Routes = [
   {path:"AccountSummary",component:AccountSummaryComponent},
   {path:"SessionExpired",component:SessionExpiredComponent},
   {path:"OTP1",component:Otp1Component},
-  {path:"FAQs",component:FAQsComponent}
+  {path:"FAQs",component:FAQsComponent},
+  {path:"TransactionSuccessful",component:TransactionSuccessfulComponent}
 ];
 
 @NgModule({
