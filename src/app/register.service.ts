@@ -65,6 +65,10 @@ export class RegisterService {
   {
      return this.client.get<UserProfile>(this.url+'/display?EmailId='+email)
   }
+  GetReference(id:number):Observable<UserProfile>
+  {
+     return this.client.get<UserProfile>(this.url+'/display?referencenumber='+id)
+  }
   OpenNewAccount(newUser:UserProfile) 
   {
     return this.client.post(this.url+'/OpenNewAccount', JSON.stringify(newUser), this.httpOptions);

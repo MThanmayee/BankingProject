@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-account-activation-status',
@@ -11,9 +12,13 @@ export class AccountActivationStatusComponent implements OnInit {
 StatusForm=new FormGroup({
   referenceNumber:new FormControl("",Validators.required)
 })
-  constructor(private router:Router) { }
+   userprofile !: any;
+   ref!: any
+  constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
+    
+    
   }
   get referenceNumber()
   {
@@ -25,7 +30,21 @@ StatusForm=new FormGroup({
   }
   Redirect()
   {
-    this.router.navigateByUrl("/ReferenceStatus");
+    this.service.GetReference(this.StatusForm.value.referenceNumber).subscribe((data)=>
+    {
+      this.userprofile=data
+      console.log(this.userprofile)
+      if(this.userprofile! = null)
+      {
+        sessionStorage.setItem('accountstatus',this.StatusForm.value.accountStatus)
+        sessionStorage.setItem('ref',this.StatusForm.value.referenceNumber)
+        return this.router.navigateByUrl("/Checkstatus")
+      }
+      
+      else{
+      alert("Invalid reference number")
+      return this.router.navigateByUrl("/Trackstatus")
+      }
+    });
   }
-
 }

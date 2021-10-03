@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+
 import { UserProfile } from '../user-profile';
 import { RegisterService } from '../register.service';
 @Component({
@@ -14,9 +16,12 @@ export class ReferenceNumberComponent implements OnInit {
   ngOnInit(): void {
     this.acnt=sessionStorage.getItem('email')
     console.log(this.acnt)
-    this.service.GetDetails(this.acnt).subscribe((data)=>
+    this.service.GetDetails(this.acnt).subscribe((data)=>{
     this.userprofile=data
+    console.log(this.userprofile)}
     );
+    
   }
+
 
 }

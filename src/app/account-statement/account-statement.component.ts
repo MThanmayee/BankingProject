@@ -24,6 +24,7 @@ export class AccountStatementComponent implements OnInit {
 
   ngOnInit(): void 
   {
+    this.service.subject.next(true);
     this.accountno=sessionStorage.getItem('accountnumber')
     this.service.getTransactions(this.accountno).subscribe(data => 
       {

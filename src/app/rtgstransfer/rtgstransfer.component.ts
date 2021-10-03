@@ -32,7 +32,7 @@ export class RTGSTransferComponent implements OnInit {
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
-    
+    this.service.subject.next(true);
     console.log("hi")
    
     this.service.generatetransaction().subscribe(data=>{this.transactionid=data})
@@ -47,6 +47,7 @@ export class RTGSTransferComponent implements OnInit {
         console.log(this.beneficiaries)
       }
     )
+
   }
   AddPayee()
   {
@@ -62,7 +63,16 @@ export class RTGSTransferComponent implements OnInit {
      sessionStorage.setItem('MaturityInstrctions',this.RTGSForm.value.MaturityInstructions)
      sessionStorage.setItem('Remarks',this.RTGSForm.value.Remarks)
      sessionStorage.setItem('transactionpassword',this.RTGSForm.value.Tpassword)
-     this.service.validatetpassword(this.accountnumber,this.RTGSForm.value.Tpassword).subscribe(data=>{this.value = data})
-    this.router.navigateByUrl("/TransactionConfirm")
+     this.service.validatetpassword(this.accountnumber,this.RTGSForm.value.Tpassword).subscribe(data=>{this.value = data
+    
+      if(this.value!=null){
+        this.router.navigateByUrl("/TransactionConfirm")
+       }
+       else{
+         alert("wrong transaction")
+       }
+
+    })
+   
   }
 }
