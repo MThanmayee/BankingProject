@@ -11,15 +11,18 @@ import { RegisterService } from '../register.service';
 export class NEFTTransferComponent implements OnInit {
    accountnumber!: any
   beneficiaries!: any[]
+  transactionid!:any
   NEFTForm:FormGroup = new FormGroup(
     {
-      TransactionID: new FormControl(),
-      FromAccount:new FormControl("",Validators.required),
+      TransactionID: new FormControl(this.transactionid),
+      TransactionType:new FormControl(),
+      FromAccount:new FormControl(sessionStorage.getItem('accountnumber')),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
       Date:new FormControl("",Validators.required),
+      Tpassword:new FormControl("",Validators.required),
       MaturityInstructions:new FormControl("",Validators.required),
-      Remark:new FormControl("",Validators.required)
+      Remarks:new FormControl("",Validators.required)
     }
   )
 
@@ -27,6 +30,12 @@ export class NEFTTransferComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("hi")
+    this.service.generatetransaction().subscribe(data=>{
+      this.transactionid=data
+      console.log(this.transactionid)
+      this.NEFTForm.value.TransactionID = this.transactionid
+    })
+    
     this.accountnumber = sessionStorage.getItem('accountnumber')
     console.log(this.accountnumber)
     this.service.GetBenificiary(this.accountnumber).subscribe(
@@ -44,7 +53,9 @@ export class NEFTTransferComponent implements OnInit {
   }
   Redirect()
   {
+    this.NEFTForm.value.TransactionID = this.transactionid
     sessionStorage.setItem('transactionid',this.NEFTForm.value.TransactionID)
+    sessionStorage.setItem('transactiontype',"NEFT")
      sessionStorage.setItem('ToAccount',this.NEFTForm.value.ToAccount)
      sessionStorage.setItem('Amount',this.NEFTForm.value.Amount)
      sessionStorage.setItem('Date',this.NEFTForm.value.Date)

@@ -28,9 +28,17 @@ export class RegisterService {
   {
     return this.subject.asObservable();
   }
-  getbydate(fromdate:Date, todate: Date)
+  validatetpassword(accountnumber:number,password:string)
   {
-    return this.client.get(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00')
+    return this.client.get(this.url+'/validate?accountnumber='+accountnumber+'&&password='+password)
+  }
+  generatetransaction()
+  {
+    return this.client.get(this.url+'/generatetransaction')
+  }
+  getbydate(fromdate:Date, todate: Date, accountnumber:String)
+  {
+    return this.client.get<Transactions[]>(this.url+'/getbydate?fromdate='+fromdate+'T00:00:00&&todate='+todate+'T00:00:00&&accountnumber='+accountnumber)
   }
   UpdateBalance(transactions:Transactions)
   {
@@ -74,10 +82,17 @@ export class RegisterService {
   {
     return this.client.get<Account>(this.url+'/summary?accountnumber='+id);
   }
+  GetBank(id:number)
+  {
+    return this.client.get(this.url+'/bankdetails?id='+id)
+  }
 
   getTransactions(accountnumber:number)
   {
     return this.client.get<Transactions[]>(this.url+'/transactions?AccountNumber='+accountnumber)
+  }
+  singletransaction(transactionId:number){
+    return this.client.get(this.url+'/singletransaction?transactionId='+transactionId)
   }
   getall():Observable<Account[]>
   {

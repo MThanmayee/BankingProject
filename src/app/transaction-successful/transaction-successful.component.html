@@ -1,37 +1,43 @@
+<div class="bg-white" id="lwhole">
+  <h3 style="text-align: center;">Transaction Successful</h3>
+  <div class="container pb-sm-3 m-sm">
 
-<div class="container d-flex justify-content-center">
-    
+<br>
+<br>
+
    
-    
-      <table class="table" >
-          <thead>
-              <tr>
-            
-                <th>Transaction ID</th>
-                
-                <th>To Account</th>
-                <th>Amount</th>
-                <th>From Account</th>
-               <th>On</th>
-                <th>Remarks</th>
-  
+    <table class="table" >
+      <tr>
+              <th>Transaction ID</th>
+              <td>{{transactions.transactionId}}</td>
+      </tr>
+      <tr>
+              <th>To Account</th>
+              <td>{{transactions.toAccount}}</td>
+      </tr>
+      <tr>
+        <th>Transaction Type</th>
+        <td>{{transactions.transactionType}}</td>
+</tr>
+      <tr>
+              <th>Amount</th>
+              <td>{{transactions.amount}}</td>
+            </tr><tr>
+              <th>From Account</th>
+              <td>{{transactions.fromAccount}}</td>
+            </tr><tr>
+             <th>Transaction Date And Time</th>
+             <td>{{transactions.date }}</td>
+            </tr><tr>
+              <th>Remarks</th>
+              <td>{{transactions.remarks}}</td>
               </tr>
-            </thead>
-            <tbody>
-                
-                <tr *ngFor = "let i of transactions">
-                  <td><input type="radio" /></td> 
-                  <td>{{i. transactionId}}</td>
-                  
-                  <td>{{i.toAccount}}</td>
-                  <td>{{i.amount}}</td>
-                  <td>{{i.fromAccount}}</td>
-                  <td>{{i.date }}</td>
-                  <td>{{i.remarks}}</td>
-                  
-                  
-              </tr>
-            </tbody>
-      
       </table>
+      <br>
+      <br>
+      <button class="btn btn-primary btn-block bg-primary mb-4 form-inline"  (click)="Back()">Back</button>
+      
   </div>
+ 
+  </div>
+           

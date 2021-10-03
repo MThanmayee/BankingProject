@@ -241,9 +241,10 @@
         <div class="form-group mb-2">
             <label for="BranchIfsc"><b>IFSC Code</b></label>
             <select id="BranchIfsc" name="BranchIfsc" class="form-control" name="ifsc" formControlName="BranchIfsc" required>
-                <option value="Bank of Baroda">BARB0SHIPOO</option>
+                <option *ngFor="let i of bank" [value]="i.ifsccode">{{i.branchName}} - {{i.ifsccode}}</option> 
+               <!--  <option value="Bank of Baroda">BARB0SHIPOO</option>
                 <option value="UNIB0799893">UBIN0799893</option>
-                <option value="IDBI Bank">IDBI0015536</option>
+                <option value="IDBI Bank">IDBI0015536</option> -->
             </select>
             <!-- <input type="text" placeholder="Enter occupation type" class="form-control required" name="occtype" formControlName="occtype"/> -->
             <br>  

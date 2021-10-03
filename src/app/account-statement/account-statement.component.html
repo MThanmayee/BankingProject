@@ -1,20 +1,20 @@
 
+<form [formGroup]="Searchform">
+  <label for="fromdate">FromDate</label>
+  <input type="date" id="fromdate" name="fromdate" formControlName="Fromdate"/>
+  <label for="fromdate">ToDate</label>
+  <input type="date" id="todate" name="todate" formControlName="Todate"/>
+  <button (click)="search()">Search</button>
+</form>
 
-
-<div class="container d-flex justify-content-center">
-  <form [formGroup]="Searchform">
-    <label for="fromdate">FromDate</label>
-    <input type="date" id="fromdate" name="fromdate" formControlName="Fromdate"/>
-    <label for="fromdate">ToDate</label>
-    <input type="date" id="todate" name="todate" formControlName="Todate"/>
-    <button (click)="search()">Search</button>
-  </form>
+<div class="container d-flex ">
+  
  
   
     <table class="table" >
         <thead>
             <tr>
-              <th>Select</th>
+             
               <th>Transactiond ID</th>
               <th>From Account</th>
               <th>To Account</th>
@@ -23,13 +23,14 @@
               <th>Transaction Type</th>
               <th>Maturity Instructions</th>
               <th>Remarks</th>
+              <th>ClosingBalance</th>
 
             </tr>
           </thead>
           <tbody>
               
-              <tr *ngFor = "let i of transactions">
-                <td><input type="radio" /></td> 
+              <tr *ngFor = "let i of transaction">
+                
                 <td>{{i. transactionId}}</td>
                 <td>{{i.fromAccount}}</td>
                 <td>{{i.toAccount}}</td>
@@ -38,6 +39,12 @@
                 <td>{{i.transactionType}}</td>
                 <td>{{i.maturityInstructions}}</td>
                 <td>{{i.remarks}}</td>
+                <!-- <td *ngIf ="i.fromAccount==this.accountno;else elseblock">
+                  {{i.closingBalance}}
+                </td>
+                <ng-template #elseblock>
+                  <td>{{i.toClosingBalance}}</td>
+                </ng-template> -->
                 
                 
             </tr>

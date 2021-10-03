@@ -5,20 +5,21 @@
 <form [formGroup]="IMPSForm" (ngSubmit)="Redirect()" >
 
     <div class="form-group mb-2">
-        <label for="id">Transaction ID</label>
-        <input type="number" id="id" name="TransactionID"  class = "form-control" formControlName="TransactionID" />
+        <!-- <label for="id">Transaction ID</label> -->
+        <input type="hidden" id="id" name="TransactionID"  class = "form-control" formControlName="TransactionID" value="{{this.transactionid}}" />
         <br>  
     </div>
     
+    
     <div class="form-group mb-2">
         <label for="fAcnt">From Account</label>
-        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount"/>
+        <input type="number" id="fAcnt" name="FromAccount" class = "form-control" formControlName="FromAccount" value="{{this.accountnumber}}" readonly/>
         <br>  
     </div>
     <div class="form-group mb-2">
         <label for="beneficiary" class="form-label">To Account</label>
         <select  id="beneficiary" name="ToAccount" class="form-control" formControlName="ToAccount" required>
-                <option *ngFor="let i of beneficiaries" [value]="i.toAccount">{{i.toAccount}}</option> >
+                <option *ngFor="let i of beneficiaries" [value]="i.toAccount">{{i.benificiaryName}} - {{i.toAccount}}</option> 
            
            
             <!-- <option value="UNIB0799893">UBIN0799893</option>
@@ -38,6 +39,11 @@
     <div class="form-group mb-2">
         <label for="tDate" class="form-label">Transaction Date</label>
         <input type="date" id="tDate" name="Date" class="form-control" formControlName="Date"/>
+        <br>  
+    </div>
+    <div class="form-group mb-2">
+        <label for="tpass" class="form-label">Transaction Password</label>
+        <input type="text" id="tpass" name="Tpassword" class="form-control" formControlName="Tpassword"/>
         <br>  
     </div>
 

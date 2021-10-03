@@ -29,8 +29,8 @@
     <nav id="navbar" class="navbar">
         <ul>
           <li><a class="active" href="/Home">Home</a></li>
-          
-          <li><a routerLink="/Login">Login</a></li>
+          <li><a [routerLink]="" (click)='logout()'>Logout</a> </li>
+         <!--  <li><a routerLink="/Login">Login</a></li>
           <li><a href="/Admin">Admin</a></li>
           <li><a href="/OpenAccount">New Account</a></li>
           
@@ -41,15 +41,15 @@
               <li><a href="#">FAQ</a></li>
               
             </ul>
-          </li>
+          </li> -->
          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
-    <ul class="nav navbar-nav">  
+    <!-- <ul class="nav navbar-nav">  
         <li><a routerLink="Home">Home</a>  </li>  
         <li>
             <a [routerLink]=""  (click)='logout()'>Logout</a>
        </li> 
-       </ul>  
+       </ul>   -->
    </div>

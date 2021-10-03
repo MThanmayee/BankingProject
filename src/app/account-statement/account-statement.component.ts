@@ -13,7 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AccountStatementComponent implements OnInit {
   fromdate:any;
   todate:any;
-  transactions!:any;
+  transaction!:any[];
   accountno!: any;
 
   Searchform=new FormGroup({
@@ -27,9 +27,9 @@ export class AccountStatementComponent implements OnInit {
     this.accountno=sessionStorage.getItem('accountnumber')
     this.service.getTransactions(this.accountno).subscribe(data => 
       {
-        this.transactions = data;
+        this.transaction = data;
 
-        console.log(this.transactions)
+        console.log(this.transaction)
       })
   }
 
@@ -39,11 +39,11 @@ export class AccountStatementComponent implements OnInit {
     this.todate=this.Searchform.value.Todate
     console.log(this.fromdate)
     console.log(this.todate)
-    this.service.getbydate(this.fromdate,this.todate).subscribe(
+    this.service.getbydate(this.fromdate,this.todate,this.accountno).subscribe(
       data=>{
-        this.transactions=data;
+        this.transaction=data;
 
-        console.log(this.transactions)
+        console.log(this.transaction)
       }
     )
   }
