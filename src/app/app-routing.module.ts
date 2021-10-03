@@ -29,6 +29,7 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { AccountSummaryComponent } from './account-summary/account-summary.component';
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
 import { Otp1Component } from './otp1/otp1.component';
+import { FAQsComponent } from './faqs/faqs.component';
 const routes: Routes = [
   {path:"",component: HomeComponent},
   {path:"IMPS",component:IMPSTransferComponent},
@@ -60,6 +61,7 @@ const routes: Routes = [
   {path:"AccountSummary",component:AccountSummaryComponent},
   {path:"SessionExpired",component:SessionExpiredComponent},
   {path:"OTP1",component:Otp1Component},
+  {path:"FAQs",component:FAQsComponent},
   {path:"TransactionSuccessful",component:TransactionSuccessfulComponent}
 ];
 

@@ -85,7 +85,7 @@
                         <div class="form-group mb-2">
             
                             <label for="Mobilenumber"><b>Mobile Number</b></label>
-                            <input type="number" placeholder="Enter Mobile number" required class="form-control" name="Mobilenumber" formControlName="mobilenumber"/>
+                            <input type="text" placeholder="Enter Mobile number" required class="form-control" name="Mobilenumber" formControlName="mobilenumber"/>
                             <br>  
                         </div>
             
@@ -100,16 +100,16 @@
 
                         <div class="form-group mb-2">
             
-                            <label for="EmailId"><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" class="form-control required" name="EmailId" formControlName="emailId"/>
+                            <label for="Email"><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" class="form-control required" name="Email" formControlName="emailId"/>
                             <br>  
                         </div>
             
-                        <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error text-danger" role="alert">
-                            <div *ngIf="email?.errors?.required">
+                        <div *ngIf="!emailId?.valid && (emailId?.dirty || emailId?.touched)" class="error text-danger" role="alert">
+                            <div *ngIf="emailId?.errors?.required">
                               Email is required
                             </div>
-                              <div *ngIf="email?.errors?.pattern">
+                              <div *ngIf="emailId?.errors?.pattern">
                                 Enter a Valid Email
                               </div>
                         </div>
