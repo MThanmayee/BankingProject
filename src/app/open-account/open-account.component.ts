@@ -112,6 +112,12 @@ export class OpenAccountComponent implements OnInit {
   get ifsc(){
     return this.ContactForm.get('ifsc');
   }
+
+  check()
+  {
+    this.ContactForm.value.peraddressline1=this.ContactForm.value.resaddressline1;
+    this.ContactForm.value.perlandmark=this.ContactForm.value.reslandmark;
+  }
   
 
   SubmitInfo(){
