@@ -177,7 +177,7 @@
 
             <h4><pre class="text-left pb-sm-2 m-sm"><b>Residential Address </b>  </pre></h4><br>
             <div class="form-group mb-2">
-            <input type="checkbox"/><b>Permanent Address same as Mailing Address</b>
+            <input type="checkbox" value="check" (click)="check()"/><b>Permanent Address same as Mailing Address</b>
             </div>
             <div class="form-group mb-2">
                <label for="PerAddressLine1"><b>Address</b></label>  
@@ -241,7 +241,7 @@
         <div class="form-group mb-2">
             <label for="BranchIfsc"><b>IFSC Code</b></label>
             <select id="BranchIfsc" name="BranchIfsc" class="form-control" name="ifsc" formControlName="BranchIfsc" required>
-                <option value="Bank of Baroda">BARB0SHIPOO</option>
+                <option value="hyd">100</option>
                 <option value="UNIB0799893">UBIN0799893</option>
                 <option value="IDBI Bank">IDBI0015536</option>
             </select>
