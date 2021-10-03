@@ -16,6 +16,7 @@ export class AccountDetailsComponent implements OnInit {
   constructor(private service:RegisterService) { }
 
   ngOnInit(): void {
+    this.service.subject.next(true);
     this.acnt=sessionStorage.getItem('email')
     console.log(this.acnt)
     this.service.GetDetails(this.acnt).subscribe((data)=>

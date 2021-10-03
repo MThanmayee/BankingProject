@@ -43,6 +43,7 @@ export class OpenAccountComponent implements OnInit {
   constructor(private service:RegisterService, private router:Router) { }
 
   ngOnInit(): void {
+
     this.service.GetBank(11).subscribe(data=>{this.bank = data})
   }
   get title()

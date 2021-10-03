@@ -10,6 +10,7 @@ import { RegisterService } from '../register.service';
 })
 export class IMPSTransferComponent implements OnInit {
 
+  value!: any
   accountnumber!: any
   beneficiaries!: any[]
   transactionid!:any
@@ -31,6 +32,7 @@ export class IMPSTransferComponent implements OnInit {
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
+    this.service.subject.next(true);
     console.log("hi")
     this.service.generatetransaction().subscribe(data=>{this.transactionid=data})
     console.log(this.transactionid)
@@ -60,6 +62,16 @@ export class IMPSTransferComponent implements OnInit {
      sessionStorage.setItem('Date',this.IMPSForm.value.Date)
      sessionStorage.setItem('MaturityInstrctions',this.IMPSForm.value.MaturityInstructions)
      sessionStorage.setItem('Remarks',this.IMPSForm.value.Remarks)
-    this.router.navigateByUrl("/TransactionConfirm")
+     this.service.validatetpassword(this.accountnumber,this.IMPSForm.value.Tpassword).subscribe(data=>{this.value = data  
+    console.log(this.value)
+     if(this.value!=null){
+      this.router.navigateByUrl("/TransactionConfirm")
+     }
+     else{
+       alert("wrong transaction")
+     }
+    })
+    
+   
   }
 }
