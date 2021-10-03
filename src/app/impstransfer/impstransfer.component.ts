@@ -21,7 +21,7 @@ export class IMPSTransferComponent implements OnInit {
       FromAccount:new FormControl(sessionStorage.getItem('accountnumber')),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
-      Date:new FormControl("",Validators.required),
+    
       Tpassword:new FormControl("",Validators.required),
       MaturityInstructions:new FormControl("",Validators.required),
       
@@ -57,7 +57,7 @@ export class IMPSTransferComponent implements OnInit {
     sessionStorage.setItem('transactiontype',"IMPS")
      sessionStorage.setItem('ToAccount',this.IMPSForm.value.ToAccount)
      sessionStorage.setItem('Amount',this.IMPSForm.value.Amount)
-     sessionStorage.setItem('Date',this.IMPSForm.value.Date)
+    
      sessionStorage.setItem('MaturityInstrctions',this.IMPSForm.value.MaturityInstructions)
      sessionStorage.setItem('Remarks',this.IMPSForm.value.Remarks)
     this.router.navigateByUrl("/TransactionConfirm")

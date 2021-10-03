@@ -135,7 +135,7 @@ export class OpenAccountComponent implements OnInit {
         }
       }
     );
-
+    sessionStorage.setItem('email',this.ContactForm.value.emailId)
 
   }
   
