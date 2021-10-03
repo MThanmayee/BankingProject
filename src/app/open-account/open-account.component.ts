@@ -37,12 +37,13 @@ export class OpenAccountComponent implements OnInit {
   });
 
   status!: string;
-  
+  bank!:any
   statusObj: any = {};
   cpass: string = "";
   constructor(private service:RegisterService, private router:Router) { }
 
   ngOnInit(): void {
+    this.service.GetBank(11).subscribe(data=>{this.bank = data})
   }
   get title()
   {

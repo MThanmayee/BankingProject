@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   SubmitRedirect()
   {
       this.service.Login(this.ContactForm.value).subscribe(res => {
+        this.service.subject.next(true);
         sessionStorage.setItem('customerid',this.ContactForm.value.customerid)
          this.route.navigateByUrl("/Dashboard");
       });   
