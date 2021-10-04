@@ -24,15 +24,10 @@ StatusForm=new FormGroup({
   {
     return this.StatusForm.get("referenceNumber");
   }
-  submitInfo()
-  {
-    
-  }
+ 
   Redirect()
   {
-<<<<<<< HEAD
    
-=======
     this.service.GetReference(this.StatusForm.value.referenceNumber).subscribe((data)=>
     {
       this.userprofile=data
@@ -49,6 +44,5 @@ StatusForm=new FormGroup({
       return this.router.navigateByUrl("/Trackstatus")
       }
     });
->>>>>>> b27d62776e9054815238e774c02315f113f3ab18
   }
 }

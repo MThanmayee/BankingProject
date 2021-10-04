@@ -3,7 +3,7 @@
 
         <div class="col-sm-8 offset-sm-2">
             <h2>Account Activation Status</h2>
-    <form [formGroup]="StatusForm" class="form-group" (ngSubmit)="submitInfo()">
+    <form [formGroup]="StatusForm" class="form-group" (ngSubmit)="Redirect()">
         <div>  
             <label for="referenceNumber">Enter Reference Number</label>
             <input type="text" id="referenceNumber" name="referenceNumber" class="form-control" formControlName="referenceNumber"/><br>
