@@ -53,12 +53,12 @@
                 <td>{{i.transactionType}}</td>
                 <td>{{i.maturityInstructions}}</td>
                 <td>{{i.remarks}}</td>
-                <!-- <td *ngIf ="i.fromAccount==this.accountno;else elseblock">
+                <td *ngIf ="i.fromAccount==this.accountno;else elseblock">
                   {{i.closingBalance}}
                 </td>
                 <ng-template #elseblock>
                   <td>{{i.toClosingBalance}}</td>
-                </ng-template> -->
+                </ng-template>
                 
                 
             </tr>
