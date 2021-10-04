@@ -15,6 +15,7 @@ export class ViewBenificiariesComponent implements OnInit {
   constructor(private service:RegisterService) { }
 
   ngOnInit(): void {
+    this.service.subject.next(true);
     this.accountnumber = sessionStorage.getItem('accountnumber')
     this.service.GetBenificiary(this.accountnumber).subscribe(
       data=>{
