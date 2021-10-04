@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+
 import { UserProfile } from '../user-profile';
 import { RegisterService } from '../register.service';
 @Component({
@@ -20,5 +22,6 @@ export class ReferenceNumberComponent implements OnInit {
     );
     
   }
+
 
 }

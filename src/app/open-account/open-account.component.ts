@@ -43,6 +43,7 @@ export class OpenAccountComponent implements OnInit {
   constructor(private service:RegisterService, private router:Router) { }
 
   ngOnInit(): void {
+
     this.service.GetBank(11).subscribe(data=>{this.bank = data})
     
   }
@@ -114,11 +115,11 @@ export class OpenAccountComponent implements OnInit {
     return this.ContactForm.get('ifsc');
   }
 
-  check()
+ /*  check()
   {
-    this.ContactForm.value.peraddressline1=this.ContactForm.value.resaddressline1;
-    this.ContactForm.value.perlandmark=this.ContactForm.value.reslandmark;
-  }
+    this.ContactForm.value.peraddressline1=this.ContactForm.value.get('resaddressline1');
+    //this.ContactForm.value.perlandmark=this.ContactForm.value.reslandmark;
+  } */
   
 
   SubmitInfo(){
@@ -135,9 +136,8 @@ export class OpenAccountComponent implements OnInit {
           this.status = "User Already Exist";
         }
       }
-      
-    );sessionStorage.setItem('email',this.ContactForm.value.emailId)
-
+    );
+    sessionStorage.setItem('email',this.ContactForm.value.emailId)
 
   }
   

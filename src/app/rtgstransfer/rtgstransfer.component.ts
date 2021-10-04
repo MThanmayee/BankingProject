@@ -12,7 +12,7 @@ export class RTGSTransferComponent implements OnInit {
   accountnumber!: any
   beneficiaries!: any[]
   transactionid!:any
-  date!:any
+ 
   value!:any
   
   
@@ -23,7 +23,7 @@ export class RTGSTransferComponent implements OnInit {
       FromAccount:new FormControl(sessionStorage.getItem('accountnumber')),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
-      Date:new FormControl("",Validators.required),
+      
       Tpassword:new FormControl("",Validators.required),
       MaturityInstructions:new FormControl("",Validators.required),
       Remarks:new FormControl("",Validators.required)
@@ -32,9 +32,9 @@ export class RTGSTransferComponent implements OnInit {
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
-    
+    this.service.subject.next(true);
     console.log("hi")
-    this.date = new Date()
+   
     this.service.generatetransaction().subscribe(data=>{this.transactionid=data})
     console.log(this.transactionid)
     this.accountnumber = sessionStorage.getItem('accountnumber')
@@ -47,6 +47,7 @@ export class RTGSTransferComponent implements OnInit {
         console.log(this.beneficiaries)
       }
     )
+
   }
   AddPayee()
   {
@@ -59,12 +60,19 @@ export class RTGSTransferComponent implements OnInit {
      sessionStorage.setItem('transactiontype',"RTGS")
      sessionStorage.setItem('Amount',this.RTGSForm.value.Amount)
      sessionStorage.setItem('transactiontype',"RTGS")
-     sessionStorage.setItem('Date',this.RTGSForm.value.Date)
-     console.log((this.date))
      sessionStorage.setItem('MaturityInstrctions',this.RTGSForm.value.MaturityInstructions)
      sessionStorage.setItem('Remarks',this.RTGSForm.value.Remarks)
      sessionStorage.setItem('transactionpassword',this.RTGSForm.value.Tpassword)
-     this.service.validatetpassword(this.accountnumber,this.RTGSForm.value.Tpassword).subscribe(data=>{this.value = data})
-    this.router.navigateByUrl("/TransactionConfirm")
+     this.service.validatetpassword(this.accountnumber,this.RTGSForm.value.Tpassword).subscribe(data=>{this.value = data
+    
+      if(this.value!=null){
+        this.router.navigateByUrl("/TransactionConfirm")
+       }
+       else{
+         alert("wrong transaction")
+       }
+
+    })
+   
   }
 }

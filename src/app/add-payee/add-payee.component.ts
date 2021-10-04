@@ -28,7 +28,7 @@ export class AddPayeeComponent implements OnInit {
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
-
+    this.service.subject.next(true);
   this.accountnumber = sessionStorage.getItem('accountnumber')
   console.log(this.accountnumber)
    

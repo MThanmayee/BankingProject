@@ -10,6 +10,7 @@ import { RegisterService } from '../register.service';
 })
 export class NEFTTransferComponent implements OnInit {
    accountnumber!: any
+   value!: any
   beneficiaries!: any[]
   transactionid!:any
   NEFTForm:FormGroup = new FormGroup(
@@ -19,7 +20,6 @@ export class NEFTTransferComponent implements OnInit {
       FromAccount:new FormControl(sessionStorage.getItem('accountnumber')),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
-      Date:new FormControl("",Validators.required),
       Tpassword:new FormControl("",Validators.required),
       MaturityInstructions:new FormControl("",Validators.required),
       Remarks:new FormControl("",Validators.required)
@@ -29,6 +29,7 @@ export class NEFTTransferComponent implements OnInit {
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
+    this.service.subject.next(true);
     console.log("hi")
     this.service.generatetransaction().subscribe(data=>{
       this.transactionid=data
@@ -58,9 +59,18 @@ export class NEFTTransferComponent implements OnInit {
     sessionStorage.setItem('transactiontype',"NEFT")
      sessionStorage.setItem('ToAccount',this.NEFTForm.value.ToAccount)
      sessionStorage.setItem('Amount',this.NEFTForm.value.Amount)
-     sessionStorage.setItem('Date',this.NEFTForm.value.Date)
      sessionStorage.setItem('MaturityInstrctions',this.NEFTForm.value.MaturityInstructions)
      sessionStorage.setItem('Remarks',this.NEFTForm.value.Remarks)
-    this.router.navigateByUrl("/TransactionConfirm")
+     this.service.validatetpassword(this.accountnumber,this.NEFTForm.value.Tpassword).subscribe(data=>{this.value = data
+    
+      if(this.value!=null){
+        this.router.navigateByUrl("/TransactionConfirm")
+       }
+       else{
+         alert("wrong transaction")
+       }
+
+    })
+   
   }
 }

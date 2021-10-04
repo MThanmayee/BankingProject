@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Otp1Component } from './otp1/otp1.component';
 import { FAQsComponent } from './faqs/faqs.component';
 import { MenuComponent } from './menu/menu.component';
+import { CheckstatusComponent } from './checkstatus/checkstatus.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { MenuComponent } from './menu/menu.component';
     Otp1Component,
     AccountStatementComponent,
     FAQsComponent,
-    MenuComponent
+    MenuComponent,
+    CheckstatusComponent
   ],
   imports: [
     BrowserModule,

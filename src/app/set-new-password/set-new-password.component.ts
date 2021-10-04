@@ -23,6 +23,7 @@ export class SetNewPasswordComponent implements OnInit {
   )
 
   ngOnInit(): void {
+    this.service.subject.next(true);
   }
  
   submitInfo()

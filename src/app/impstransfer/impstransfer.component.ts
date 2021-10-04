@@ -10,6 +10,7 @@ import { RegisterService } from '../register.service';
 })
 export class IMPSTransferComponent implements OnInit {
 
+  value!: any
   accountnumber!: any
   beneficiaries!: any[]
   transactionid!:any
@@ -21,7 +22,7 @@ export class IMPSTransferComponent implements OnInit {
       FromAccount:new FormControl(sessionStorage.getItem('accountnumber')),
       ToAccount:new FormControl("",Validators.required),
       Amount:new FormControl("",Validators.required),
-      Date:new FormControl("",Validators.required),
+    
       Tpassword:new FormControl("",Validators.required),
       MaturityInstructions:new FormControl("",Validators.required),
       
@@ -31,6 +32,7 @@ export class IMPSTransferComponent implements OnInit {
   constructor(private router:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
+    this.service.subject.next(true);
     console.log("hi")
     this.service.generatetransaction().subscribe(data=>{this.transactionid=data})
     console.log(this.transactionid)
@@ -57,9 +59,19 @@ export class IMPSTransferComponent implements OnInit {
     sessionStorage.setItem('transactiontype',"IMPS")
      sessionStorage.setItem('ToAccount',this.IMPSForm.value.ToAccount)
      sessionStorage.setItem('Amount',this.IMPSForm.value.Amount)
-     sessionStorage.setItem('Date',this.IMPSForm.value.Date)
+    
      sessionStorage.setItem('MaturityInstrctions',this.IMPSForm.value.MaturityInstructions)
      sessionStorage.setItem('Remarks',this.IMPSForm.value.Remarks)
-    this.router.navigateByUrl("/TransactionConfirm")
+     this.service.validatetpassword(this.accountnumber,this.IMPSForm.value.Tpassword).subscribe(data=>{this.value = data  
+    console.log(this.value)
+     if(this.value!=null){
+      this.router.navigateByUrl("/TransactionConfirm")
+     }
+     else{
+       alert("wrong transaction")
+     }
+    })
+    
+   
   }
 }

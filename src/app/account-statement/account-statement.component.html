@@ -1,10 +1,24 @@
-
 <form [formGroup]="Searchform">
-  <label for="fromdate">FromDate</label>
-  <input type="date" id="fromdate" name="fromdate" formControlName="Fromdate"/>
-  <label for="fromdate">ToDate</label>
-  <input type="date" id="todate" name="todate" formControlName="Todate"/>
-  <button (click)="search()">Search</button>
+<div class="row" style="margin-top:10px;margin-bottom: 10px;">    
+  <div class="col-sm-3 form-group">  </div>  
+
+
+  
+  <div class="col-sm-3 form-group"> 
+    <label for="fromdate" class="form-group">FromDate: </label>
+  <input type="date" id="fromdate" name="fromdate" placeholder="FromDate" formControlName="Fromdate"/>
+  </div>
+
+ 
+  <div class="col-sm-3 form-group"> 
+    <label for="todate" class="form-group">ToDate: </label>
+  <input type="date" id="todate" name="todate" placeholder="ToDate" formControlName="Todate"/>
+  </div>
+  <div class="col-sm-3 form-group">   
+  <button (click)="search()"  class="btn btn-success">Search</button>
+</div>
+
+</div>
 </form>
 
 <div class="container d-flex ">

@@ -15,6 +15,7 @@ export class AccountSummaryComponent implements OnInit
   constructor(private service:RegisterService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.service.subject.next(true);
     this.acntnumber = sessionStorage.getItem('accountnumber')
     this.service.GetAccountById(this.acntnumber).subscribe(data => 
       {

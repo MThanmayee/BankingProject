@@ -20,7 +20,7 @@ export class TransactionConfirmComponent implements OnInit {
       FromAccount:new FormControl(parseInt(sessionStorage.getItem('accountnumber')!.toString())),
       ToAccount:new FormControl(parseInt(sessionStorage.getItem('ToAccount')!.toString())),
       Amount:new FormControl(parseInt(sessionStorage.getItem('Amount')!.toString())),
-      Date:new FormControl(sessionStorage.getItem('Date')),
+     
       MaturityInstructions:new FormControl(sessionStorage.getItem('MaturityInstrctions')),
       Remarks:new FormControl(sessionStorage.getItem('Remarks'))
     })
@@ -37,7 +37,7 @@ export class TransactionConfirmComponent implements OnInit {
     this.TransactionForm.value.TransactionType = sessionStorage.getItem('transactiontype')
     this.TransactionForm.value.ToAccount=parseInt(sessionStorage.getItem('ToAccount')!.toString())
     this.TransactionForm.value.Amount=parseInt(sessionStorage.getItem('Amount')!.toString())
-    this.TransactionForm.value.Date=sessionStorage.getItem('Date')
+    
     this.TransactionForm.value.MaturityInstructions=sessionStorage.getItem('MaturityInstrctions')
     this.TransactionForm.value.Remarks=sessionStorage.getItem('Remarks')
     console.log(this.TransactionForm.value)
