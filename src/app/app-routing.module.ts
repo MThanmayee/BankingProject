@@ -66,6 +66,7 @@ const routes: Routes = [
   {path:"FAQs",component:FAQsComponent},
   {path:"Checkstatus",component:CheckstatusComponent},
   {path:"TransactionSuccessful",component:TransactionSuccessfulComponent}
+  
 ];
 
 @NgModule({

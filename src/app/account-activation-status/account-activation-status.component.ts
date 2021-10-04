@@ -24,13 +24,11 @@ StatusForm=new FormGroup({
   {
     return this.StatusForm.get("referenceNumber");
   }
-  submitInfo()
-  {
-    
-  }
+ 
   Redirect()
   {
     console.log(this.StatusForm.value.referenceNumber)
+   
     this.service.GetReference(this.StatusForm.value.referenceNumber).subscribe((data)=>
     {
       this.userprofile=data
