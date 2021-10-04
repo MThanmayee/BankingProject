@@ -63,6 +63,7 @@ const routes: Routes = [
   {path:"OTP1",component:Otp1Component},
   {path:"FAQs",component:FAQsComponent},
   {path:"TransactionSuccessful",component:TransactionSuccessfulComponent}
+  
 ];
 
 @NgModule({
