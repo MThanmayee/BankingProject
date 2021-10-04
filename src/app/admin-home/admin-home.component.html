@@ -21,7 +21,7 @@
     </div>
   </nav>
 
-<h1 class="center">HELLO ADMIN!!</h1><br>
+<h3 class="center">Welcome Admin</h3><br>
 
 
 <table class="table">
@@ -43,6 +43,9 @@
             <th>
                 Approval Status
             </th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
   
@@ -54,7 +57,8 @@
           <td>{{user.referenceNumber}}</td>
           <td>{{user.accountStatus}}</td>
           <td>
-              <button (click)="submitinfo(user)">Approve status</button>
+            <button class="btn btn-primary bg-primary mb-4 form-inline" type="Submit"  (click)="submitinfo(user)">Approve status</button>
+             
           </td>
       </tr>
       </tbody>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl,Validators } from '@angular/forms';
+import { FormBuilder,FormGroup, FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
 import { Benificiaries } from '../benificiaries';
+import { MatchPasswordService } from '../match-password.service';
 
 @Component({
   selector: 'app-add-payee',
@@ -11,23 +12,24 @@ import { Benificiaries } from '../benificiaries';
 })
 export class AddPayeeComponent implements OnInit {
 
-  AddPayeeForm:FormGroup = new FormGroup(
-    {
-      FromAccount: new FormControl(sessionStorage.getItem('accountnumber')),
-      BenificiaryName:new FormControl("",Validators.required),
-      ToAccount:new FormControl("",Validators.required),
-      RAccountNumber:new FormControl("",Validators.required),
-      IFSCCode:new FormControl("",Validators.required),
-      NickName:new FormControl("",Validators.required)
-    }
-  )
+  
   //newbenificiary!:Benificiaries;
   accountnumber!:any;
   bank!:any;
   statusObj: any = {};
   status!: string;
-  constructor(private router:Router,private service:RegisterService) { }
-
+  constructor(private fb:FormBuilder,
+    public customValidator:MatchPasswordService,private router:Router,private service:RegisterService) { }
+    AddPayeeForm:FormGroup = this.fb.group(
+      {
+        FromAccount: new FormControl(sessionStorage.getItem('accountnumber')),
+        BenificiaryName:new FormControl("",Validators.required),
+        ToAccount:new FormControl("",Validators.required),
+        RAccountNumber:new FormControl("",Validators.required),
+        IFSCCode:new FormControl("",Validators.required),
+        NickName:new FormControl("",Validators.required)
+      },{ validator: this.customValidator.passwordMatchValidator("ToAccount","RAccountNumber")}
+    );
   ngOnInit(): void {
     this.service.subject.next(true);
   this.accountnumber = sessionStorage.getItem('accountnumber')
