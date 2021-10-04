@@ -26,7 +26,7 @@ export class AdminComponent implements OnInit {
 
   SubmitInfo(){
     this.service.AdminLogin(this.ContactForm.value).subscribe(res => {
-      
+      sessionStorage.setItem('id',this.ContactForm.value.id)
        this.route.navigateByUrl("/AdminHome");
     });
   }
