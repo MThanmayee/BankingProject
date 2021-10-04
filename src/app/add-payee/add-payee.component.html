@@ -28,7 +28,16 @@
     </div>
     <div class="form-group mb-2">
         <label for="ifsccode" class="form-label">IFSC Code</label>
-        <input type="text" id="ifsccode" name="ifsccode" class="form-control"   formControlName="IFSCCode"/>
+        
+        <!-- <input type="text" id="ifsccode" name="ifsccode" class="form-control"   formControlName="IFSCCode"/> -->
+        <select  id="bank" name="ifsccode" class="form-control" formControlName="IFSCCode" required>
+            <option *ngFor="let i of bank" [value]="i.ifsccode">{{i.branchName}} - {{i.ifsccode}}</option> 
+       
+       
+        <!-- <option value="UNIB0799893">UBIN0799893</option>
+        <option value="IDBI Bank">IDBI0015536</option> -->
+        
+    </select>
         <br>  
     </div>
     <div class="form-group mb-2">

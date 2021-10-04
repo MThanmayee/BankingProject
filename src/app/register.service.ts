@@ -15,7 +15,7 @@ export class RegisterService {
   Url !:string;  
   token !: string;  
   header : any;  
-  private url = "https://localhost:44378/api/account";
+  private url = "https://localhost:5001/api/account";
   httpOptions = {
     headers : new HttpHeaders(
       {
@@ -90,7 +90,10 @@ export class RegisterService {
   {
     return this.client.get(this.url+'/bankdetails?id='+id)
   }
-
+  getifsc()
+  {
+    return this.client.get(this.url+'/bank')
+  }
   getTransactions(accountnumber:number)
   {
     return this.client.get<Transactions[]>(this.url+'/transactions?AccountNumber='+accountnumber)

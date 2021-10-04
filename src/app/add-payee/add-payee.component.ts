@@ -23,6 +23,7 @@ export class AddPayeeComponent implements OnInit {
   )
   //newbenificiary!:Benificiaries;
   accountnumber!:any;
+  bank!:any;
   statusObj: any = {};
   status!: string;
   constructor(private router:Router,private service:RegisterService) { }
@@ -30,6 +31,12 @@ export class AddPayeeComponent implements OnInit {
   ngOnInit(): void {
     this.service.subject.next(true);
   this.accountnumber = sessionStorage.getItem('accountnumber')
+  this.service.getifsc().subscribe(
+    data=>
+    {
+      this.bank = data;
+    }
+  );
   console.log(this.accountnumber)
    
   }
