@@ -136,9 +136,8 @@ export class OpenAccountComponent implements OnInit {
           this.status = "User Already Exist";
         }
       }
-      
-    );sessionStorage.setItem('email',this.ContactForm.value.emailId)
-
+    );
+    sessionStorage.setItem('email',this.ContactForm.value.emailId)
 
   }
   
