@@ -17,22 +17,51 @@
 </div>
 
 
-<!-- <div>
-    <nav>
-        <ul class="navbar navbar-expand bg-info navbar-dark" >
-          <a href="AccountDetails" class="navbar-brand">Account Details</a>
-          <a href="AccountSummary" class="navbar-brand" status="active">Account Summary</a>
-           <a href="FundsTransfer" class="navbar-brand" >Funds Transfer</a>
-           <a href="AccountStatement" class="navbar-brand">Account Statement</a>
-            <a href="SetNewPassword" class="navbar-brand">Change User's Password</a>
-            <a href="SessionExpired" class ="navbar-brand">Session Expired</a>
-        </ul>	
-  </nav>
-</div>
+
+<div class="col-md-8 offset-md-2">
+    <span class="anchor" id="formUserEdit"></span>
+    <hr class="my-5">
+
+    <!-- form user info -->
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">Account Summary</h3>
+        </div>
+      
+        
+        <div class="card-body">
+            <table class="table" >
+                <tr>
+                        <th>Account Holder Name</th>
+                        <td>{{AccountDetails.userName}}</td>
+                </tr>
+                <tr>
+                        <th>Account Number</th>
+                        <td>{{AccountDetails.accountNumber}}</td>
+                </tr>
+                <tr>
+                  <th>customer ID</th>
+                  <td>{{AccountDetails.customerId}}</td>
+          </tr>
+                <tr>
+                        <th>Balance</th>
+                        <td>{{AccountDetails.balance}}</td>
+                      </tr>
+                </table>
+            <!-- 
  -->
-<!-- <div class="navFoot" >
-    <p>© 2020 Larsen & Toubro Infotech Limited</p>
-</div -->
+        </div>
+        
+    </div>
+    <br> <br>
+  
+
+</div>
+
+
+
+
+
 
 </div>
 

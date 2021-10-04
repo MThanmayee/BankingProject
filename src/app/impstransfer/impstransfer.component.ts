@@ -68,7 +68,7 @@ export class IMPSTransferComponent implements OnInit {
       this.router.navigateByUrl("/TransactionConfirm")
      }
      else{
-       alert("wrong transaction")
+       alert('wrong transaction')
      }
     })
     

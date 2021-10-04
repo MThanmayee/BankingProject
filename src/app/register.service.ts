@@ -15,7 +15,7 @@ export class RegisterService {
   Url !:string;  
   token !: string;  
   header : any;  
-  private url = "https://localhost:5001/api/account";
+  private url = "https://localhost:44378/api/account";
   httpOptions = {
     headers : new HttpHeaders(
       {
@@ -67,7 +67,7 @@ export class RegisterService {
   }
   GetReference(id:number):Observable<UserProfile>
   {
-     return this.client.get<UserProfile>(this.url+'/display?referencenumber='+id)
+     return this.client.get<UserProfile>(this.url+'/reference?referencenumber='+id)
   }
   OpenNewAccount(newUser:UserProfile) 
   {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { RegisterService } from '../register.service';
 import { Account } from '../account';
 
@@ -16,13 +16,25 @@ export class DashboardComponent implements OnInit {
   
   customerid!: any;
 
+  AccountDetails:any;
+  acntnumber!:any;
+
   constructor(private route:Router,private service:RegisterService) { }
 
   ngOnInit(): void {
+    this.service.subject.next(true);
     this.customerid=sessionStorage.getItem('customerid')
     if(this.customerid === null)
     this.route.navigateByUrl("/Login");
     this.getdetails()
+
+    
+    this.acntnumber = sessionStorage.getItem('accountnumber')
+    this.service.GetAccountById(this.acntnumber).subscribe(data => 
+      {
+        this.AccountDetails = data;
+        console.log(this.AccountDetails)
+      })
   }
 
   getdetails(){

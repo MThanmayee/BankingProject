@@ -30,10 +30,15 @@ StatusForm=new FormGroup({
   }
   Redirect()
   {
+    console.log(this.StatusForm.value.referenceNumber)
     this.service.GetReference(this.StatusForm.value.referenceNumber).subscribe((data)=>
     {
       this.userprofile=data
-      console.log(this.userprofile)
+      sessionStorage.setItem('accountstatus',this.userprofile.accountStatus)
+        sessionStorage.setItem('ref',this.StatusForm.value.referenceNumber)
+        return this.router.navigateByUrl("/Checkstatus")
+
+     /*  console.log(this.userprofile)
       if(this.userprofile! = null)
       {
         sessionStorage.setItem('accountstatus',this.StatusForm.value.accountStatus)
@@ -44,7 +49,7 @@ StatusForm=new FormGroup({
       else{
       alert("Invalid reference number")
       return this.router.navigateByUrl("/Trackstatus")
-      }
+      } */
     });
   }
 }
