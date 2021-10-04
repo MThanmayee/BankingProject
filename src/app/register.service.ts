@@ -15,7 +15,7 @@ export class RegisterService {
   Url !:string;  
   token !: string;  
   header : any;  
-  private url = "https://localhost:5001/api/account";
+  private url = "https://localhost:44378/api/account";
   httpOptions = {
     headers : new HttpHeaders(
       {
